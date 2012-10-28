@@ -1,10 +1,10 @@
 
-mksh_base_dir=$shellar/mksh
+mksh_base_dir=$shellar
 mksh_lib_dir=$mksh_base_dir/lib
-mksh_theme_dir=$mksh_base_dir/theme
-mksh_plugin_dir=$mksh_base_dir/plugin
+mksh_theme_dir=$mksh_base_dir/themes
+mksh_plugin_dir=$mksh_base_dir/plugins
 
-for config in $mksh_lib_dir/*; do
+for config in $mksh_lib_dir/*.mksh; do
   if [[ -e $config ]]; then
     source $config
   fi
@@ -22,3 +22,13 @@ if [[ -n $shellar_theme ]]; then
 else
   source $mksh_theme_dir/default/default.theme.mksh
 fi
+
+
+case $(uname) in
+  FreeBSD)
+    xsource $mksh_lib_dir/os/freebsd.mksh
+    ;;
+  Darwin)
+    xsource  $mksh_lib_dir/os/darwin.mksh
+    ;;
+esac

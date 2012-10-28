@@ -10,25 +10,25 @@ for config in $bash_lib_dir/*.bash
 do
   if [ -f $config ] 
   then
-source $config
-fi
+    source $config
+  fi
 done
 
 # load plugins
 for plugin in "${plugins[@]}"
 do
-if [ -f $bash_plugins_dir/$plugin/$plugin.plugin.bash ]
-then
-source $bash_plugins_dir/$plugin/$plugin.plugin.bash
-fi
+  if [ -f $bash_plugins_dir/$plugin/$plugin.plugin.bash ]
+  then
+    source $bash_plugins_dir/$plugin/$plugin.plugin.bash
+  fi
 done
 
 # load theme
 if [ -n $bash_theme  ]
 then
-source $bash_themes_dir/$shellar_theme/$shellar_theme.theme.bash
+  source $bash_themes_dir/$shellar_theme/$shellar_theme.theme.bash
 else
-source $bash_themes_dir/default/default.theme.bash
+  source $bash_themes_dir/default/default.theme.bash
 fi
 
 
