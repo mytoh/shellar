@@ -2,7 +2,7 @@
 
 # complete {{{
 function push-to-comp-path
-set -l comp-directory ~/local/git
+set  comp-directory ~/local/git
   for p in $argv
     if test -d $comp-directory/$p
       if not contains $comp-directory/$p $fish_complete_path

@@ -16,6 +16,7 @@ push-to-path $EPREFIX/tmp/bin $EPREFIX/tmp/usr/bin $EPREFIX/bin $EPREFIX/usr/bin
 # }}}
 
 push-to-path /usr/local/kde4/bin $HOME/local/homebrew/{sbin,bin} $HOME/local/{sbin,bin}
+push-to-path ~/local/app/v2c
 
 # haskell package {{{
 push-to-path $HOME/.cabal/bin

@@ -2,7 +2,7 @@
 # panna {{{
 # add panna to PATH
 set -x OLUTPANIMO "$HOME/.panna"
-set -x GAUCHE_LOAD_PATH $OLUTPANIMO/kirjasto:$GAUCHE_LOAD_PATH
+set -x GAUCHE_LOAD_PATH $OLUTPANIMO/kirjasto/lib $GAUCHE_LOAD_PATH
 push-to-path $OLUTPANIMO/bin
 
 function __fish_complete_panna_kaava

@@ -19,7 +19,10 @@ end
 
 complete -c talikko -n '__fish_use_subcommand' -xa 'install reinstall update up search'
 complete -c talikko -f -a "(__fish_complete_talikko_ports_tree)"
-complete -c tl -n '__fish_use_subcommand' -xa 'install reinstall update up search'
-complete -c tl -f -a "(__fish_complete_talikko_ports_tree)"
+complete -c tk -n '__fish_use_subcommand' -xa 'install reinstall update up search'
+complete -c tk -f -a "(__fish_complete_talikko_ports_tree)"
+
+
+alias tk=talikko
 #}}}
 

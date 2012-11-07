@@ -1,6 +1,9 @@
+
 set loitsu $HOME/.loitsu
 set loitsu_lib $loitsu/lib
 set loitsu_bin $loitsu/bin
+
+set -x PATH $loitsu_bin $PATH
 
 # mosh
 if test $MOSH_LOADPATH
