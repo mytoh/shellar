@@ -25,3 +25,11 @@ else
 setenv YPSILON_LOADPATH ${loitsu_bin}
 endif
 
+
+# lehti {{{
+if  ( $?MOSH_LOADPATH ) then
+setenv MOSH_LOADPATH `lehti setup load-path`:${MOSH_LOADPATH}
+else
+setenv MOSH_LOADPATH `lehti setup load-path`
+endif
+# }}}
