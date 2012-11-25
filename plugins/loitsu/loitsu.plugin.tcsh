@@ -6,11 +6,7 @@ set loitsu_bin=${loitsu}/bin
 setenv PATH ${loitsu_bin}:${PATH}
 
 # mosh
-if  ( $?MOSH_LOADPATH ) then
-setenv MOSH_LOADPATH ${loitsu_lib}:${MOSH_LOADPATH}
-else
 setenv MOSH_LOADPATH  ${loitsu_lib}
-endif
 
 # ypsilon
 if ( $?YPSILON_SITELIB ) then
