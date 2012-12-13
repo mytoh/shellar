@@ -32,3 +32,11 @@ alias halt 'sync;sync;sync;sudo shutdown -p now'
 alias reboot 'sync;sync;sync;sudo shutdown -r now'
 alias sudo 'sudo -E '
 
+alias mkd 'piki mkd'
+alias starwars 'piki starwars'
+alias jblive 'piki jblive'
+alias sumo 'piki sumo'
+alias sumo2 'piki sumo2'
+alias sumo3 'piki sumo3'
+alias gsp 'piki gsp'
+
