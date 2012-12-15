@@ -28,4 +28,7 @@ setenv MOSH_LOADPATH `lehti setup load-path`:${MOSH_LOADPATH}
 else
 setenv MOSH_LOADPATH `lehti setup load-path`
 endif
+
+eval `lehti completion tcsh`
 # }}}
+
