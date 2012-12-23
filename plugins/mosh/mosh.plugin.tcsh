@@ -8,4 +8,4 @@ alias msh 'rlwrap \\
           --multi-line \\
           --prompt-colour="1;31" \\
           --remember \\
-          nmosh'
+          mosh'

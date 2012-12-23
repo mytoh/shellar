@@ -1,6 +1,6 @@
 
-setenv LANG en_GB.UTF-8
-#setenv LC_ALL ja_JP.UTF-8
+setenv LANG fi_FI.UTF-8
+setenv LC_ALL fi_FI.UTF-8
 setenv EDITOR vim
 setenv PAGER less
 setenv FTP_PASSIVE_MODE true
