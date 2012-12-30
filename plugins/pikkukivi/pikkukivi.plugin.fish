@@ -7,5 +7,7 @@ set -x GAUCHE_LOAD_PATH $PIKKUKIVI/lib $GAUCHE_LOAD_PATH
 push-to-path $PIKKUKIVI/bin
 
 . $PIKKUKIVI/misc/aliases.sh
+
+alias paths='piki print-path'
 # }}}
 
