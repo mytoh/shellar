@@ -1,2 +1,2 @@
 
-PS1="$(kehote 0)"
+PS1="$(kehote yuki)"

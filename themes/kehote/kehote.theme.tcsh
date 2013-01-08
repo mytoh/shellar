@@ -2,5 +2,5 @@
 
 set prompt=""
 
-alias precmd kehote $status
+alias precmd kehote yuki
 set prompt=`rehash`""
