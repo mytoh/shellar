@@ -1,4 +1,5 @@
 
+alias e 'emacsclient -n -a ""'
 
 if (-d ~/.emacs.d) then
  if (-f ~/.emacs.d/shellenv.el) then
