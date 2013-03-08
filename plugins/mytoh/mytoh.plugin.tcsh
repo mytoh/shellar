@@ -15,6 +15,7 @@ setenv NLSPATH ~/local/lib/tcsh/%N
 setenv RLWRAP_HOME ~/.rlwrap
 setenv _JAVA_OPTIONS '-Dawt.useSystemAAFontSettings=on'
 
+# for shellar
 setenv CURRENT_SHELL tcsh
 
 ## options
@@ -36,7 +37,7 @@ set color
 set colorcat
 set autoexpand
 set complete=enhance
-set path=(~/.cabal/bin ~/local/app/{v2c} ~/local/bin ~/local/homebrew/bin /usr/local/kde4/{sbin,bin} /usr/local/{sbin,bin} /{sbin,bin} /usr/{sbin,bin} )
+set path=(~/.cabal/bin ~/.bin ~/local/apps/{v2c} ~/local/bin ~/local/homebrew/bin /usr/local/kde4/{sbin,bin} /usr/local/{sbin,bin} /{sbin,bin} /usr/{sbin,bin} )
 set cdpath=(~/local/ ~/local/var/)
 set noclobber
 set notify
@@ -99,5 +100,3 @@ bindkey '' history-search-forward
 bindkey '' backward-delete-word
 
 
-
-setenv PATH ~/.bin:$PATH
