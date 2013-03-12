@@ -35,6 +35,12 @@ else
 setenv YPSILON_SITELIB `lehti setup load-path`
 endif
 
+if ( ! $?LEHTI_DIR ) then
+setenv LEHTI_DIR "${HOME}/.lehti"
+endif
+
+setenv PATH "${LEHTI_DIR}/bin:${PATH}"
+
 eval `lehti completion tcsh`
 # }}}
 
