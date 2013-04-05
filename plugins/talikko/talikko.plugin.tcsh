@@ -1,5 +1,5 @@
 
-if ( { ( which talikko >& /dev/null ) } ) then
+if ( { ( type talikko >& /dev/null ) } ) then
 
 alias tk talikko
 

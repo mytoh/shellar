@@ -73,7 +73,7 @@ alias sc screen -U -D -RR  -s /bin/tcsh -m
 #               tmux -u2                      \\ 
 #           endif'                               
 alias mv 'mv -iv'
-which dfc >& /dev/null
+type dfc >& /dev/null
 if ($? == 0) then
 alias df 'dfc'
 else
