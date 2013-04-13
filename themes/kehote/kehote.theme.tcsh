@@ -2,5 +2,5 @@
 
 set prompt=""
 
-alias precmd kehote yuki
+alias precmd kehote default
 set prompt=`rehash`""

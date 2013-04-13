@@ -56,8 +56,10 @@ set padhour
 #umask 022
 limit coredumpsize 0
 
+if ($?prompt) then
 stty kill 
 stty stop undef # disable C-s key
+endif
 
 
 ## aliases 

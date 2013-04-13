@@ -1,5 +1,4 @@
 
 if ( { ( type lista >& /dev/null ) } ) then
-alias ls 'lista list'
-alias ll 'lista long'
+alias ls 'lista long'
 endif
