@@ -81,13 +81,8 @@ alias df 'dfc'
 else
 alias df 'df -h'
 endif
-alias pfetch 'sudo make  fetch-recursive'
-alias pinst "sudo make  install distclean; rehash"
-alias pconf sudo make  config-recursive
-alias pclean 'sudo make  clean '
 alias .. 'cd ..'
 alias scsh 'rlwrap scsh'
-alias ew 'emacs -f w3m'
 alias single 'sudo shutdown now'
 alias halt 'sync;sync;sync;sudo shutdown -p now'
 alias reboot 'sync;sync;sync;sudo shutdown -r now'

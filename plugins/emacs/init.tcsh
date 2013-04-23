@@ -11,3 +11,14 @@ if (-d ~/.emacs.d) then
   echo -n '"' >> ~/.emacs.d/shellenv.el
   echo  ")" >> ~/.emacs.d/shellenv.el
 endif
+
+alias em-w 'emacs -f w3m'
+
+if (-d "$HOME/.carton") then
+  set path=($HOME/.carton/bin $path)
+
+  alias em-cai 'carton install'
+  alias em-cau 'carton update'
+  alias em-caI 'carton init'
+  alias em-cae 'carton exec'
+endif
