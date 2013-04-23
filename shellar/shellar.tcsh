@@ -12,7 +12,7 @@ end
 
 # load plugins
 foreach plugin ( $shellar_plugins )
-  set f=$shellar_plugins_dir/$plugin/$plugin.plugin.tcsh
+  set f=$shellar_plugins_dir/$plugin/init.tcsh
   if (-f $f) then
     source $f
   endif
