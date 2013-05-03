@@ -62,18 +62,15 @@ stty stop undef # disable C-s key
 endif
 
 
-## aliases 
-alias cwdcmd ls-F 
+## aliases
+alias cwdcmd ls-F
 #alias jobcmd 'echo -n "]2\;\!#"'
-alias pup 'sudo portsnap fetch update '
-alias pcheck 'sudo portmaster -PBidav && sudo portaudit -Fdav && sudo portmaster --clean-packages --clean-distfiles'
-#alias pup 'sudo portsnap fetch update && sudo pkg_replace -Bcav && sudo portaudit -av && rehash'
-alias sc screen -U -D -RR  -s /bin/tcsh -m 
-# alias tm 'if (tumx ls >/dev/null 2>&1) then \\ 
-#               tumx attach                   \\ 
-#             else                            \\ 
-#               tmux -u2                      \\ 
-#           endif'                               
+alias sc screen -U -D -RR  -s /bin/tcsh -m
+# alias tm 'if (tumx ls >/dev/null 2>&1) then \\
+#               tumx attach                   \\
+#             else                            \\
+#               tmux -u2                      \\
+#           endif'
 alias mv 'mv -iv'
 type dfc >& /dev/null
 if ($? == 0) then

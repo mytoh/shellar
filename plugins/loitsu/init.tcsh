@@ -6,7 +6,7 @@ set loitsu_bin=${loitsu}/bin
 setenv PATH ${loitsu_bin}:${PATH}
 
 # mosh
-setenv MOSH_LOADPATH  ${loitsu_lib}
+setenv MOSH_LOADPATH ${loitsu_lib}
 
 # ypsilon
 if ( $?YPSILON_SITELIB ) then
@@ -28,7 +28,7 @@ setenv MOSH_LOADPATH `lehti setup load-path`:${MOSH_LOADPATH}
 else
 setenv MOSH_LOADPATH `lehti setup load-path`
 endif
-
+ 
 if  ( $?YPSILON_SITELIB ) then
 setenv YPSILON_SITELIB `lehti setup load-path`:${YPSILON_SITELIB}
 else
