@@ -14,6 +14,8 @@ set catalog=ja.ayanami.cat
 setenv NLSPATH ~/local/lib/tcsh/%N
 setenv RLWRAP_HOME ~/.rlwrap
 setenv _JAVA_OPTIONS '-Dawt.useSystemAAFontSettings=on'
+# proxy
+setenv http_proxy "http://127.0.0.1:3128"
 
 # for shellar
 setenv CURRENT_SHELL tcsh
