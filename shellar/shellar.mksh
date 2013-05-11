@@ -1,8 +1,7 @@
+# -*- shell-script -*-
 
-mksh_base_dir=$shellar
-mksh_lib_dir=$mksh_base_dir/lib
-mksh_theme_dir=$mksh_base_dir/themes
-mksh_plugin_dir=$mksh_base_dir/plugins
+source $shellar/shellar/lib.mksh
+
 
 for config in $mksh_lib_dir/*.mksh; do
   if [[ -e $config ]]; then
@@ -11,24 +10,16 @@ for config in $mksh_lib_dir/*.mksh; do
 done
 
 for plugin in $shellar_plugins; do
-  if [[ -e $mksh_plugin_dir/$plugin/$plugin.plugin.mksh ]]; then
-    source $mksh_plugin_dir/$plugin/$plugin.plugin.mksh
+  if [[ -e $shellar_plugin_dir/$plugin/init.mksh ]]; then
+    source $shellar_plugin_dir/$plugin/init.mksh
   fi
 done
 
 
 if [[ -n $shellar_theme ]]; then
-  source $mksh_theme_dir/$shellar_theme/$shellar_theme.theme.mksh
+  source $shellar_theme_dir/$shellar_theme/$shellar_theme.theme.mksh
 else
-  source $mksh_theme_dir/default/default.theme.mksh
+  source $shellar_theme_dir/default/default.theme.mksh
 fi
 
 
-case $(uname) in
-  FreeBSD)
-    xsource $mksh_lib_dir/os/freebsd.mksh
-    ;;
-  Darwin)
-    xsource  $mksh_lib_dir/os/darwin.mksh
-    ;;
-esac
