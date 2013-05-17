@@ -1,7 +1,7 @@
 
 source $shellar/shellar/lib.tcsh
 
-# load library files
+# library files
 foreach lib ($shellar_lib_dir/*)
   set l=`basename $lib`
   set f=$shellar_lib_dir/$l/$l.tcsh
@@ -10,7 +10,7 @@ foreach lib ($shellar_lib_dir/*)
   endif
 end
 
-# load plugins
+# plugins
 foreach plugin ( $shellar_plugins )
   set f=$shellar_plugins_dir/$plugin/init.tcsh
   if (-f $f) then
@@ -18,7 +18,15 @@ foreach plugin ( $shellar_plugins )
   endif
 end
 
-# load theme
+# custom plugins
+foreach plugin ( $shellar_plugins )
+  set f=$shellar_custom_plugin_dir/$plugin/init.tcsh
+  if (-f $f) then
+    source $f
+  endif
+end
+
+# theme
 if ( "$shellar_theme" != "" ) then
   source $shellar_themes_dir/$shellar_theme/$shellar_theme.theme.tcsh
 else
