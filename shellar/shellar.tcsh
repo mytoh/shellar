@@ -1,9 +1,13 @@
 
+if ( ! $?shellar ) then
+set shellar=$HOME/.shellar
+endif
+
 source $shellar/shellar/lib.tcsh
 
 # library files
 foreach lib ($shellar_lib_dir/*)
-  set l=`basename $lib`
+  set l=$lib:t
   set f=$shellar_lib_dir/$l/$l.tcsh
   if (-f $f) then
     source $f
@@ -27,7 +31,7 @@ foreach plugin ( $shellar_plugins )
 end
 
 # theme
-if ( "$shellar_theme" != "" ) then
+if ( $?shellar_theme) then
   source $shellar_themes_dir/$shellar_theme/$shellar_theme.theme.tcsh
 else
   source $shellar_themes_dir/default/default.theme.tcsh

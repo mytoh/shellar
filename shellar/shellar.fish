@@ -1,26 +1,34 @@
 
-set  fish_base_dir $shellar
-set  fish_lib_dir $fish_base_dir/lib
-set  fish_plugins_dir $fish_base_dir/plugins
-set  fish_themes_dir $fish_base_dir/themes
+if not test $shellar
+  set shellar=$HOME/.shellar
+end
+
+. $shellar/shellar/lib.fish
 
 # load library files
-for config in $fish_lib_dir/*.fish
+for config in $shellar_lib_dir/*.fish
   . $config
 end
 
 # load plugins
-for plugin in $plugins
-  if test $fish_plugins_dir/$plugin/$plugin.plugin.fish
-  . $fish_plugins_dir/$plugin/$plugin.plugin.fish
+for plugin in $shellar_plugins
+  if test $shellar_plugins_dir/$plugin/init.fish
+  . $shellar_plugins_dir/$plugin/init.fish
+  end
+end
+
+# load custom plugins
+for plugin in $shellar_theme
+  if test $shellar_custom_plugin_dir/$plugin/init.fish 
+     . $shellar_custom_plugin_dir/$plugin/init.fish
   end
 end
 
 # load theme
 if test $shellar_theme
-. $fish_themes_dir/$shellar_theme/$shellar_theme.theme.fish
+. $shellar_themes_dir/$shellar_theme/$shellar_theme.theme.fish
 else
-. $fish_themes_dir/default/default.theme.fish
+. $shellar_themes_dir/default/default.theme.fish
 end
 
 

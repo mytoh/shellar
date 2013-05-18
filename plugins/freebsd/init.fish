@@ -1,4 +1,8 @@
-set -x LD_LIBRARY_PATH /usr/local/linux-sun-jdk1.6.0/jre/lib/i386
+
+switch (uname)
+case FreeBSD
+
+ set -x LD_LIBRARY_PATH /usr/local/linux-sun-jdk1.6.0/jre/lib/i386
 set -x SDL_VIDEODRIVER vgl
 set -x XDG_DATA_DIRS /usr/local/kde4/share
 # PACKAGESITE="ftp://ftp.jp.FreeBSD.org/pub/FreeBSD/ports/i386/packages/Latest/"
@@ -78,5 +82,7 @@ function orb
        `:`                  [01;31m`:`
          [31;1m.--             [37m`-[33m-.
             .---...[33m...----                         '
+
+end
 
 end
