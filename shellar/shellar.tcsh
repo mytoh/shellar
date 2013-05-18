@@ -16,19 +16,21 @@ end
 
 # plugins
 foreach plugin ( $shellar_plugins )
-  set f=$shellar_plugins_dir/$plugin/init.tcsh
-  if (-f $f) then
-    source $f
+  set p=$shellar_plugins_dir/$plugin/init.tcsh
+  set c=$shellar_custom_plugin_dir/$plugin/init.tcsh
+  if (-f $c) then
+    source $c
+  else if (-f $p) then
+    source $p
   endif
 end
 
 # custom plugins
-foreach plugin ( $shellar_plugins )
-  set f=$shellar_custom_plugin_dir/$plugin/init.tcsh
-  if (-f $f) then
-    source $f
-  endif
-end
+#foreach plugin ( $shellar_plugins )
+#  if (-f $f) then
+#    source $f
+#  endif
+#end
 
 # theme
 if ( $?shellar_theme) then
