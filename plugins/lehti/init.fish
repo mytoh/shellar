@@ -15,5 +15,11 @@ else
   set -x YPSILON_SITELIB (lehti setup load-path)
 end
 
+if test -z $LEHTI_DIR
+set -x LEHTI_DIR $HOME/.lehti
+end
+
+set -x PATH $LEHTI_DIR/bin $PATH
+
 # }}}
 

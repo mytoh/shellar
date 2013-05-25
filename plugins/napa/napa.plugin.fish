@@ -1,6 +1,3 @@
 
-
-
-
 alias ,=napa
 

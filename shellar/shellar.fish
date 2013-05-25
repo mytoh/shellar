@@ -12,15 +12,12 @@ end
 
 # load plugins
 for plugin in $shellar_plugins
-  if test $shellar_plugins_dir/$plugin/init.fish
-  . $shellar_plugins_dir/$plugin/init.fish
-  end
-end
-
-# load custom plugins
-for plugin in $shellar_theme
-  if test $shellar_custom_plugin_dir/$plugin/init.fish 
-     . $shellar_custom_plugin_dir/$plugin/init.fish
+   set p $shellar_plugins_dir/$plugin/init.fish
+   set c $shellar_custom_plugin_dir/$plugin/init.fish
+  if test -f $c
+  . $c
+   else if test -f $p
+  . $p
   end
 end
 

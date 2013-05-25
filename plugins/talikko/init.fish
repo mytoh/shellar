@@ -2,12 +2,11 @@
 # talikko {{{
 function __fish_complete_talikko_ports_tree
   set arguments (commandline -opc)
-  set path (echo $OLUTPANIMO | tr ':' '\n')
 
   for cmd in $arguments
     if contains -- $cmd install
-      set -l path /usr/ports/*
-      for i in $path
+      set -l p /usr/ports/*
+      for i in $p
         if test -d $i
         echo (basename $i)
         end

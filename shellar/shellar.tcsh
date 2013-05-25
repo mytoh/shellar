@@ -25,13 +25,6 @@ foreach plugin ( $shellar_plugins )
   endif
 end
 
-# custom plugins
-#foreach plugin ( $shellar_plugins )
-#  if (-f $f) then
-#    source $f
-#  endif
-#end
-
 # theme
 if ( $?shellar_theme) then
   source $shellar_themes_dir/$shellar_theme/$shellar_theme.theme.tcsh
