@@ -1,5 +1,5 @@
 
-if not test $shellar
+if not set -q shellar
   set shellar=$HOME/.shellar
 end
 
@@ -12,8 +12,8 @@ end
 
 # load plugins
 for plugin in $shellar_plugins
-   set p $shellar_plugins_dir/$plugin/init.fish
-   set c $shellar_custom_plugin_dir/$plugin/init.fish
+   set -l p $shellar_plugins_dir/$plugin/init.fish
+   set -l c $shellar_custom_plugin_dir/$plugin/init.fish
   if test -f $c
   . $c
    else if test -f $p
@@ -22,7 +22,7 @@ for plugin in $shellar_plugins
 end
 
 # load theme
-if test $shellar_theme
+if set -q shellar_theme
 . $shellar_themes_dir/$shellar_theme/$shellar_theme.theme.fish
 else
 . $shellar_themes_dir/default/default.theme.fish
