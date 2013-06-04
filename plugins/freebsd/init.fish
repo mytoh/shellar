@@ -14,8 +14,7 @@ function pfetch
   sudo make fetch-recursive
 end
 function pinst
-  sudo make clean
-  sudo make install distclean
+    sudo make clean reinstall distclean clean
 end
 function pconf
   sudo make config-recursive

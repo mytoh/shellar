@@ -1,6 +1,6 @@
 
 
-if ( { ( type napa >& /dev/null ) } ) then
+if ( -X napa ) then
 
 alias , napa
 

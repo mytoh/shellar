@@ -1,4 +1,4 @@
 
-if ( { ( type lista >& /dev/null ) } ) then
+if ( -X lista ) then
 alias ls 'lista long'
 endif
