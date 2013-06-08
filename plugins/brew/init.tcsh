@@ -1,5 +1,6 @@
 
 if ( $OSTYPE == "darwin") then
+  set path=(~/local/homebrew/bin ~/local/homebrew/sbin $path)
   alias b 'brew'
   alias bs 'brew -S'
   alias bi 'brew info'
