@@ -14,7 +14,7 @@ alias prmconf 'make rmconfig'
 alias puniname 'make -VUNIQUENAME'
 
 if ( -X portmaster ) then
-alias pm 'sudo portmaster'
+alias pm 'sudo portmaster -dBvy '
 endif
 
 

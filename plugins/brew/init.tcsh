@@ -1,5 +1,6 @@
 
 if ( $OSTYPE == "darwin") then
+  setenv HOMEBREW_USE_CLANG yes
   set path=(~/local/homebrew/bin ~/local/homebrew/sbin $path)
   alias b 'brew'
   alias bs 'brew -S'
