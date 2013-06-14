@@ -2,6 +2,7 @@
 if ( $OSTYPE == "darwin") then
   setenv HOMEBREW_USE_CLANG yes
   set path=(~/local/homebrew/bin ~/local/homebrew/sbin $path)
+if ( -X brew ) then
   alias b 'brew'
   alias bs 'brew -S'
   alias bi 'brew info'
@@ -13,4 +14,5 @@ if ( $OSTYPE == "darwin") then
   alias bupg 'brew upgrade'
   alias opbr "open `brew --prefix`/"
   alias cdbr "pushd `brew --prefix`"
+endif
 endif

@@ -77,6 +77,8 @@ printf '%s%s%s ' "[38;5;235m#"  "[38;5;67m;"   "[38;5;117m>"
 end
 
 function fish_prompt
+current-directory
+printf "\n"
 prompt-arrow
 end
 
