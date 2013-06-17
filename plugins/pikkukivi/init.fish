@@ -2,18 +2,40 @@
 
 # pikkukivi {{{
 
-alias paths 'piki print-path'
-alias aa    'piki ascii-taide'
-alias futaba 'piki futaba'
-alias yotsuba  'piki yotsuba'
+function paths
+ piki print-path
+end
 
-alias mkd 'piki mkd'
-alias starwars 'piki starwars'
-alias jblive 'piki jblive'
-alias sumo 'piki sumo'
-alias sumo2 'piki sumo2'
-alias sumo3 'piki sumo3'
-alias gsp 'piki gsp'
+function aa
+ piki ascii-taide $argv
+end
+
+function futaba
+ piki futaba $argv
+end
+
+function yotsuba
+  piki yotsuba $argv
+end
+
+function mkd
+ piki mkd $argv
+end
+function starwars
+ piki starwars
+end
+function jblive
+ piki jblive
+end
+function sumo
+ piki sumo
+end
+function sumo2
+ piki sumo2
+end
+function sumo3
+ piki sumo3
+end
 
 
 # }}}
