@@ -2,7 +2,7 @@
 switch (uname)
 case FreeBSD
 
- set -x LD_LIBRARY_PATH /usr/local/linux-sun-jdk1.6.0/jre/lib/i386
+set -x LD_LIBRARY_PATH /usr/local/linux-sun-jdk1.6.0/jre/lib/i386
 set -x SDL_VIDEODRIVER vgl
 set -x XDG_DATA_DIRS /usr/local/kde4/share
 # PACKAGESITE="ftp://ftp.jp.FreeBSD.org/pub/FreeBSD/ports/i386/packages/Latest/"
@@ -30,6 +30,10 @@ function pcreate
 end
 function pcreateall
   pkg_info -Ea  | xargs -n 1 sudo pkg_create -Jnvb
+end
+
+function pm
+sudo portmaster -dBvy $argv
 end
 
 #if test $TERM = "cons25"
@@ -66,20 +70,20 @@ end
 
 function orb
   echo '
-     [31m```                        [31;1m`[31m
-[31;1m    s` `.....---...[31;1m....--.```   -/[31m
-    +o   .--`         [31;1m/y:`      +.[31m
-     yo`:.            [31;1m:o      `+-[31m
-      y/               [31;1m-/`   -o/[31m
-     .-                  [31;1m::/sy+:.[31m
-[37m     /                     [31;1m`--  /[31m
-[37m    `[31m:                          [31;1m:`[31m
-[37m    `[31m:                          [31;1m:`[31m
-[37m     /                          [31;1m/[31m
-[37m     .[31m-                        [31;1m-.[31m
-      --                      [31;1m-.[31m
+     [31m```                        [31m`[31m
+[31m    s` `.....---...[31m....--.```   -/[31m
+    +o   .--`         [31m/y:`      +.[31m
+     yo`:.            [31m:o      `+-[31m
+      y/               [31m-/`   -o/[31m
+     .-                  [31m::/sy+:.[31m
+[37m     /                     [31m`--  /[31m
+[37m    `[31m:                          [31m:`[31m
+[37m    `[31m:                          [31m:`[31m
+[37m     /                          [31m/[31m
+[37m     .[31m-                        [31m-.[31m
+      --                      [31m-.[31m
        `:`                  [01;31m`:`
-         [31;1m.--             [37m`-[33m-.
+         [31m.--             [37m`-[33m-.
             .---...[33m...----                         '
 
 end
