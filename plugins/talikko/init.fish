@@ -1,4 +1,3 @@
-
 # talikko {{{
 function __fish_complete_talikko_ports_tree
   set arguments (commandline -opc)
@@ -8,7 +7,7 @@ function __fish_complete_talikko_ports_tree
       set -l p /usr/ports/*
       for i in $p
         if test -d $i
-        echo (basename $i)
+          echo (basename $i)
         end
       end
       return 0
@@ -18,11 +17,10 @@ end
 
 complete -c talikko -n '__fish_use_subcommand' -xa 'install reinstall update search info deinstall'
 complete -c talikko -f -a "(__fish_complete_talikko_ports_tree)"
-complete -c tk -n '__fish_use_subcommand' -xa 'install reinstall update search info deinstall' 
+complete -c tk -n '__fish_use_subcommand' -xa 'install reinstall update search info deinstall'
 complete -c tk -f -a "(__fish_complete_talikko_ports_tree)"
 
-if type -f napa >/dev/null
-alias tk=talikko
+if type -f napa >  /dev/null
+  alias tk=talikko
 end
 #}}}
-

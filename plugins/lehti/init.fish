@@ -1,4 +1,3 @@
-
 # lehti {{{
 
 # mosh
@@ -16,10 +15,9 @@ else
 end
 
 if test -z $LEHTI_DIR
-set -x LEHTI_DIR $HOME/.lehti
+  set -x LEHTI_DIR $HOME/.lehti
 end
 
 set -x PATH $LEHTI_DIR/bin $PATH
 
 # }}}
-
