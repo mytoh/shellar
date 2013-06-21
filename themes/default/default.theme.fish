@@ -1,4 +1,3 @@
-
 # prompt {{{
 set open_paren "[30m([0m"
 set close_paren "[30m)[0m"
@@ -6,7 +5,7 @@ set close_paren "[30m)[0m"
 #  arch wiki git status prompt {{{
 set fish_git_dirty_colour red
 function parse_git_dirty
-  git diff --quiet HEAD 2>&-
+  git diff --quiet HEAD 2>& -
   if test $status = 1
     echo (set_color $fish_git_dirty_colour)"÷"(set_color normal)
   end
@@ -33,7 +32,7 @@ function prompt_pwd_mod -d 'prompt_pwd modification for /usr/home/${USER} on Fre
     echo '~'
   case "/usr$HOME/*"
     printf "%s" (echo $PWD|sed -e "s|^/usr$HOME|~|" -e 's-/\(\.\{0,1\}[^/]\)\([^/]*\)-/\1-g')
-    echo $PWD | sed -n -e 's-.*/\.\{0,1\}.\([^/]*\)-\1-p'
+    echo $PWD  | sed -n -e 's-.*/\.\{0,1\}.\([^/]*\)-\1-p'
   case '*'
     prompt_pwd
   end
@@ -65,22 +64,21 @@ function prompt-host
 end
 
 function prompt-face
-#if test $status = 1
-#  printf '%s%s%s' "[38;5;196m" "(・X・)" (set_color $fish_color_normal)
-#else
+  #if test $status = 1
+  #  printf '%s%s%s' "[38;5;196m" "(・X・)" (set_color $fish_color_normal)
+  #else
   printf '%s%s%s' "[38;5;172m" "X / _ / X" (set_color $fish_color_normal)
-#end
+  #end
 end
 
 function prompt-arrow
-printf '%s%s%s ' "[38;5;235m#"  "[38;5;67m;"   "[38;5;117m>"
+  printf '%s%s%s ' "[38;5;235m#" "[38;5;67m;" "[38;5;117m>"
 end
 
 function fish_prompt
-current-directory
-printf "\n"
-prompt-arrow
+  current-directory
+  printf "\n"
+  prompt-arrow
 end
-
 
 #}}}

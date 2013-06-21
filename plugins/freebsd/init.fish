@@ -4,29 +4,36 @@ case FreeBSD
   set -x LD_LIBRARY_PATH /usr/local/linux-sun-jdk1.6.0/jre/lib/i386
   set -x SDL_VIDEODRIVER vgl
   set -x XDG_DATA_DIRS /usr/local/kde4/share
-  # PACKAGESITE="ftp://ftp.jp.FreeBSD.org/pub/FreeBSD/ports/i386/packages/Latest/"
+
   function pcheck
     sudo portmaster -PBidav $argv
     and sudo portaudit -Fdav
   end
+
   function pfetch
     sudo make fetch-recursive
   end
+
   function pinst
     sudo make clean reinstall distclean clean
   end
+
   function pconf
     sudo make config-recursive
   end
+
   function pclean
     sudo make clean
   end
+
   function pkg_add
     pkg_add -v $argv
   end
+
   function pcreate
     pkg_create -RJvnb
   end
+
   function pcreateall
     pkg_info -Ea  | xargs -n 1 sudo pkg_create -Jnvb
   end
@@ -42,10 +49,8 @@ case FreeBSD
   #end
 
   function beastie
-    echo '
-
-
-                [31m,        ,
+    echo "
+                31m,        ,
                /(        )`
                \ \___   / |
                /- [37m_[31m  `-/  '\''
@@ -63,7 +68,7 @@ case FreeBSD
                 \       /       /\
            [36m______[31m( (_  / \______/
          [36m,'\''  ,-----'\''   |
-         `--{__________)[37m                                 '
+         `--{__________)[37m                                 "
 
   end
 
