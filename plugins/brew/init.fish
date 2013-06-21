@@ -49,7 +49,7 @@ case Darwin
       pushd (brew --prefix)
     end
 
-    function bcask
+    function bcas
       brew cask $argv
     end
 
