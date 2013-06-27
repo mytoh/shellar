@@ -1,29 +1,10 @@
 # LOL!!1
 # Source: http://aur.archlinux.org/packages/lolbash/lolbash/lolbash.sh
 
-function wtf
-  dmesg
-end
 
-function onoz
-  cat /var/log/errors.log
-end
 
-function rtfm
-  man $argv
-end
 
-function visible
-  echo $argv
-end
 
-function invisible
-  cat $argv
-end
-
-function moar
-  more $argv
-end
 
 function tldr
   less $argv

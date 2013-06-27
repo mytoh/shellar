@@ -1,0 +1,3 @@
+function wtf
+  dmesg
+end

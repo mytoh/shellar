@@ -5,32 +5,45 @@ end
 . $shellar/shellar/lib.fish
 
 # load library files
-for config in $shellar_lib_dir/*.fish
-  . $config
+function shellar_load_configs
+  for config in $shellar_lib_dir/*.fish
+    . $config
+  end
 end
 
 # load plugins
-for plugin in $shellar_plugins
-  set -l p $shellar_plugins_dir/$plugin/init.fish
-  set -l c $shellar_custom_plugin_dir/$plugin/init.fish
-  if test -f $c
-    . $c
-  else if test -f $p
-    . $p
+function shellar_load_plugins
+  for plugin in $shellar_plugins
+    set -l p $shellar_plugins_dir/$plugin/init.fish
+    set -l c $shellar_custom_plugin_dir/$plugin/init.fish
+    if test -f $c
+      . $c
+    else if test -f $p
+      . $p
+    end
   end
 end
 
 # load theme
-if set -q shellar_theme
-  . $shellar_themes_dir/$shellar_theme/$shellar_theme.theme.fish
-else
-  . $shellar_themes_dir/default/default.theme.fish
+function shellar_load_themes
+  if set -q shellar_theme
+    . $shellar_themes_dir/$shellar_theme/$shellar_theme.theme.fish
+  else
+    . $shellar_themes_dir/default/default.theme.fish
+  end
 end
 
 # add functions dir to function path
-for plugin in $shellar_plugins
-  set -l f $shellar_plugins_dir/$plugin/functions
-  if test -d $f
-    set fish_function_path $f $fish_function_path
+function shellar_load_functions
+  for plugin in $shellar_plugins
+    set -l f $shellar_plugins_dir/$plugin/functions
+    if test -d $f
+      set fish_function_path $f $fish_function_path
+    end
   end
 end
+
+shellar_load_configs
+shellar_load_plugins
+shellar_load_themes
+shellar_load_functions
