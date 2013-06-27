@@ -37,8 +37,11 @@ end
 function shellar_load_functions
   for plugin in $shellar_plugins
     set -l f $shellar_plugins_dir/$plugin/functions
-    if test -d $f
-      set fish_function_path $f $fish_function_path
+    set -l c $shellar_custom_plugin_dir/$plugin/functions
+    if test -d $c; and not contains $c $fish_function_path
+      set -x fish_function_path $c $fish_function_path
+    else if test -d $f; and not contains $f $fish_function_path
+      set -x fish_function_path $f $fish_function_path
     end
   end
 end
