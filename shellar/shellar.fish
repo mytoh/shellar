@@ -26,3 +26,11 @@ if set -q shellar_theme
 else
   . $shellar_themes_dir/default/default.theme.fish
 end
+
+# add functions dir to function path
+for plugin in $shellar_plugins
+  set -l f $shellar_plugins_dir/$plugin/functions
+  if test -d $f
+    set fish_function_path $f $fish_function_path
+  end
+end

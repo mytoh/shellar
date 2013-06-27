@@ -1,6 +1,8 @@
 
 if type -f napa >/dev/null
-alias ,=napa
+function ,
+ napa $argv
+end
 end
 
 
