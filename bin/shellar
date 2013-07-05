@@ -1,0 +1,23 @@
+#!/bin/sh
+
+show() {
+    printf "shellar: %s\n" "${shellar}"
+    printf "custom: %s\n" "${shellar_custom}"
+    printf "plugins:\n"
+    show_plugins
+}
+
+show_plugins() {
+    IFS=":"
+    for p in ${shellar_plugins}
+    do printf "\t%s\n" "${p}"
+    done
+}
+
+main() {
+    case "${1}" in
+        show) show ;;
+    esac
+}
+
+main "${1}"

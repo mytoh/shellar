@@ -1,5 +1,5 @@
 if not set -q shellar
-  set shellar $HOME/.shellar
+  set -gx shellar $HOME/.shellar
 end
 
 . $shellar/shellar/lib.fish
