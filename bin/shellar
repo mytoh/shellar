@@ -19,12 +19,13 @@ plugins() {
     local pls=${shellar_plugins_dir}/*
 
     printf "available plugins: "
-    for p in ${pls}
+    for pl in ${pls}
     do
-        if (contains "${p##*/}" "${shellar_plugins}"); then
-            printf "[38;5;99m%s[0m " ${p##*/}
+        local p="${pl##*/}"
+        if (contains "${p}" "${shellar_plugins}"); then
+            printf "[38;5;99m%s[0m " ${p}
         else
-            printf "%s " ${p##*/}
+            printf "%s " ${p}
         fi
     done
     printf "\n"
