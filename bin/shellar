@@ -1,22 +1,64 @@
 #!/bin/sh
 
-show() {
+info() {
     printf "shellar: %s\n" "${shellar}"
     printf "custom: %s\n" "${shellar_custom}"
-    printf "plugins:\n"
-    show_plugins
+    printf "plugins: "
+    info_plugins
 }
 
-show_plugins() {
+info_plugins() {
     IFS=":"
     for p in ${shellar_plugins}
-    do printf "\t%s\n" "${p}"
+    do printf "%s " "${p}"
     done
+    printf "\n"
+}
+
+plugins() {
+    local pls=${shellar_plugins_dir}/*
+
+    printf "available plugins: "
+    for p in ${pls}
+    do
+        if (contains "${p##*/}" "${shellar_plugins}"); then
+            printf "[38;5;99m%s[0m " ${p##*/}
+        else
+            printf "%s " ${p##*/}
+        fi
+    done
+    printf "\n"
+}
+
+help() {
+    local commands="info plugins"
+    printf "commands:\n"
+    for c in ${commands}
+    do printf "%s " ${c}
+    done
+    printf "\n"
+}
+
+
+contains() {
+    local elem="${1}"
+    local list="${2}"
+    local flag=1
+    IFS=":"
+    for e in ${list}
+    do
+        if [ "${e}" = "${elem}" ]; then
+            flag=0
+        fi
+    done
+    return ${flag}
 }
 
 main() {
     case "${1}" in
-        show) show ;;
+        info) info ;;
+        plugins) plugins ;;
+        *) help ;;
     esac
 }
 
