@@ -9,8 +9,8 @@ info() {
 
 info_plugins() {
     IFS=":"
-    for p in ${shellar_plugins}
-    do printf "%s " "${p}"
+    for p in ${shellar_plugins}; do
+        printf "%s " "${p}"
     done
     printf "\n"
 }
@@ -19,8 +19,7 @@ plugins() {
     local pls=${shellar_plugins_dir}/*
 
     printf "available plugins: "
-    for pl in ${pls}
-    do
+    for pl in ${pls}; do
         local p="${pl##*/}"
         if (contains "${p}" "${shellar_plugins}"); then
             printf "[38;5;99m%s[0m " ${p}
@@ -34,8 +33,8 @@ plugins() {
 help() {
     local commands="info plugins"
     printf "commands:\n"
-    for c in ${commands}
-    do printf "%s " ${c}
+    for c in ${commands}; do
+        printf "%s " ${c}
     done
     printf "\n"
 }
@@ -46,8 +45,7 @@ contains() {
     local list="${2}"
     local flag=1
     IFS=":"
-    for e in ${list}
-    do
+    for e in ${list}; do
         if [ "${e}" = "${elem}" ]; then
             flag=0
         fi

@@ -5,7 +5,7 @@ case FreeBSD
   set -x SDL_VIDEODRIVER vgl
   set -x XDG_DATA_DIRS /usr/local/kde4/share
 
-  #if test $TERM = "cons25"
+  #if test {$TERM} = "cons25"
   #if test -e (which jfbterm)
   #  jfbterm
   #end

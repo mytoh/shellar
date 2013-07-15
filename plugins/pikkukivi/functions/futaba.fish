@@ -1,4 +1,4 @@
 
 function futaba
-  piki futaba $argv
+  piki futaba {$argv}
 end

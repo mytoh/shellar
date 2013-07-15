@@ -1,7 +1,7 @@
 
 if type -f napa >/dev/null
 function ,
- napa $argv
+ napa {$argv}
 end
 end
 

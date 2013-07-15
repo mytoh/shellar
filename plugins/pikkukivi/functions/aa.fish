@@ -1,3 +1,3 @@
 function aa
-  piki ascii-taide $argv
+  piki ascii-taide {$argv}
 end

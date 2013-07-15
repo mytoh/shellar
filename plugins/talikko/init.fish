@@ -3,12 +3,12 @@
 function __fish_complete_talikko_ports_tree
   set arguments (commandline -opc)
 
-  for cmd in $arguments
-    if contains -- $cmd install
+  for cmd in {$arguments}
+    if contains -- {$cmd} install
       set -l p /usr/ports/*
-      for i in $p
-        if test -d $i
-          echo (basename $i)
+      for i in {$p}
+        if test -d {$i}
+          echo (basename {$i})
         end
       end
       return 0
@@ -23,7 +23,7 @@ complete -c tk -f -a "(__fish_complete_talikko_ports_tree)"
 
 if type -f talikko >  /dev/null
   function tk
-    talikko $argv
+    talikko {$argv}
   end
 end
 

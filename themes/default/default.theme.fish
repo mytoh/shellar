@@ -7,19 +7,19 @@ set fish_git_dirty_colour red
 function parse_git_dirty
   git diff --quiet HEAD 2>& -
   if test $status = 1
-    echo (set_color $fish_git_dirty_colour)"÷"(set_color normal)
+    echo (set_color {$fish_git_dirty_colour})"÷"(set_color normal)
   end
 end
 
 function parse_git_branch
   # git branch outputs lines, the current branch is prefixed with a *
   set -l branch (git branch --color | awk '{print $2}')
-  echo $branch (parse_git_dirty)
+  echo {$branch} (parse_git_dirty)
 end
 
 function git_prompt
   if test -z (git branch --quiet 2>| awk '/fatal:/ {print "no git"}')
-    printf '%s%s' (parse_git_branch) (set_color $fish_color_normal)
+    printf '%s%s' (parse_git_branch) (set_color {$fish_color_normal})
   else
     echo ""
   end
@@ -28,9 +28,9 @@ end
 
 function prompt_pwd_mod -d 'prompt_pwd modification for /usr/home/${USER} on FreeBSD'
   switch "$PWD"
-  case "/usr$HOME"
+  case "/usr{$HOME}"
     echo '~'
-  case "/usr$HOME/*"
+  case "/usr{$HOME}/*"
     printf "%s" (echo $PWD|sed -e "s|^/usr$HOME|~|" -e 's-/\(\.\{0,1\}[^/]\)\([^/]*\)-/\1-g')
     echo $PWD  | sed -n -e 's-.*/\.\{0,1\}.\([^/]*\)-\1-p'
   case '*'

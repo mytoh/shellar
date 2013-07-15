@@ -1,11 +1,11 @@
 if test (type nopea)
 
   function s
-    nopea save $argv
+    nopea save {$argv}
   end
 
   function g
-    cd (nopea go $argv)
+    cd (nopea go {$argv})
   end
 
 end
