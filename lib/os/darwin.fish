@@ -13,14 +13,9 @@ set -x TERM xterm-256color
 #  end
 #end
 
-function fish_prompt -d "fish prompt with gauche script"
-	gosh prompt.scm
-end
-
 xsource (brew --prefix)/Library/Contributions/brew_fish_completion.fish
 alias mp2 "/Applications/mplayer2.app/Contents/MacOS/mplayer-bin"
-alias bsearch "brew search "
-alias binst "brew install -v"
+
 function squid_restart
 	killall squid
 	killall squid
