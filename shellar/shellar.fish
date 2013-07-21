@@ -11,8 +11,8 @@ end
 
 # load plugins
 for plugin in {$shellar_plugins}
-  set -l p {$shellar_plugins_dir}/{$plugin}/init.fish
-  set -l c {$shellar_custom_plugin_dir}/{$plugin}/init.fish
+  set p {$shellar_plugins_dir}/{$plugin}/init.fish
+  set c {$shellar_custom_plugin_dir}/{$plugin}/init.fish
   if test -f {$c}
     . {$c}
   else if test -f {$p}
@@ -29,8 +29,8 @@ end
 
 # add functions dir to function path
 for plugin in {$shellar_plugins}
-  set -l f {$shellar_plugins_dir}/{$plugin}/functions
-  set -l c {$shellar_custom_plugin_dir}/{$plugin}/functions
+  set f {$shellar_plugins_dir}/{$plugin}/functions
+  set c {$shellar_custom_plugin_dir}/{$plugin}/functions
   if test -d {$c}
     and not contains {$c} {$fish_function_path}
     set -x fish_function_path {$c} {$fish_function_path}
