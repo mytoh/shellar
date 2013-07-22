@@ -1,6 +1,8 @@
 switch (uname)
 case Darwin
-  set -x HOMEBREW_USE_CLANG yes
+set -x HOMEBREW_VERBOSE 1
+set -x HOMEBREW_CC clang
+
   set -x PATH $HOME/local/homebrew/bin $HOME/local/homebrew/sbin $PATH
 
   if type -f brew >  /dev/null
