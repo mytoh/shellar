@@ -21,7 +21,7 @@ plugins() {
     printf "available plugins: "
     for pl in ${pls}; do
         local p="${pl##*/}"
-        if (contains "${p}" "${shellar_plugins}"); then
+        if contains "${p}" "${shellar_plugins}"; then
             printf "[38;5;99m%s[0m " ${p}
         else
             printf "%s " ${p}
@@ -46,7 +46,7 @@ contains() {
     local flag=1
     IFS=":"
     for e in ${list}; do
-        if [ "${e}" = "${elem}" ]; then
+        if test "${e}" = "${elem}"; then
             flag=0
         fi
     done

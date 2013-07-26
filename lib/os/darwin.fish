@@ -25,6 +25,4 @@ function squid_restart
 	squid -f ~/.squid/etc/squid.conf -z
 	squid -f ~/.squid/etc/squid.conf
 end
-set -x HOMEBREW_VERBOSE 1
-set -x HOMEBREW_CC clang
 set -x JAVA_HOME ~/Library/JAVA/JavaVirtualMachines/1.7.0.jdk/Contents/Home

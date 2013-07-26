@@ -54,3 +54,11 @@ function shellar_push_to_path
     end
   end
 end
+
+function shellar_command_exists
+if type -f {$argv[1]} >  /dev/null
+return 0
+else
+return 127
+end
+end

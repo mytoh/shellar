@@ -2,7 +2,8 @@ set loitsu {$HOME}/.loitsu
 set loitsu_lib {$loitsu}/lib
 set loitsu_bin {$loitsu}/bin
 
-set -x PATH {$loitsu_bin} {$PATH}
+# set -x PATH {$loitsu_bin} {$PATH}
+shellar_push_to_path {$loitsu_bin}
 
 # mosh
 if test {$MOSH_LOADPATH}
