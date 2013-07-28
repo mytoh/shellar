@@ -11,24 +11,7 @@ end
 ### for Podcasting, Streaming, FM, Radio   (UTF-8)                  2011/11/21
 # 24時間放送でないところは、放送時間を確認してから聞いて下さい。
 
-# NHK
-function sb-nhkr1 -d "NHK第一"
-  __mplayer --playlist='http://mfile.akamai.com/129931/live/reflector:46032.asx'
-end
-function sb-nhkr2 -d "NHK第二"
-  __mplayer --playlist= 'http://mfile.akamai.com/129932/live/reflector:46056.asx'
-end
-function sb-nhkfm -d "NHK-FM"
-  __mplayer --playlist='http://mfile.akamai.com/129933/live/reflector:46051.asx'
-end
 
-# FMわっぴ〜             (北海道稚内市)
-function sb-wappy -d "FMわっぴ〜 (北海道稚内市)"
-  __mplayer mms://fmwappy.aa0.netvolante.jp:8080
-end
-function sb-wakkanai -d "FMわっぴ〜 (北海道稚内市)"
-  sb-wappy
-end
 
 # FMりべーる             (北海道旭川市)
 function sb-837 -d "FMりべーる (北海道旭川市)"
