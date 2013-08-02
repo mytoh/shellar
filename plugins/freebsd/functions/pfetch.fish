@@ -1,3 +1,3 @@
-  function pfetch
-    sudo make fetch-recursive
-  end
+function pfetch
+  sudo make fetch-recursive
+end

@@ -1,3 +1,3 @@
-  function pconf
-    sudo make config-recursive
-  end
+function pconf
+  sudo make config-recursive
+end

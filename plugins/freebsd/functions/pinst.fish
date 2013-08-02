@@ -1,4 +1,3 @@
-
-  function pinst
-    sudo make clean reinstall distclean clean
-  end
+function pinst
+  sudo make clean reinstall distclean clean
+end

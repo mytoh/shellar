@@ -17,12 +17,12 @@ xsource (brew --prefix)/Library/Contributions/brew_fish_completion.fish
 alias mp2 "/Applications/mplayer2.app/Contents/MacOS/mplayer-bin"
 
 function squid_restart
-	killall squid
-	killall squid
-	kill (cat ~/.squid/logs/squid.pid)
-	kill (cat ~/.squid/logs/squid.pid)
-	/bin/rm -rfv ~/.squid/cache/*
-	squid -f ~/.squid/etc/squid.conf -z
-	squid -f ~/.squid/etc/squid.conf
+  killall squid
+  killall squid
+  kill (cat ~/.squid/logs/squid.pid)
+  kill (cat ~/.squid/logs/squid.pid)
+  /bin/rm -rfv ~/.squid/cache/*
+  squid -f ~/.squid/etc/squid.conf -z
+  squid -f ~/.squid/etc/squid.conf
 end
 set -x JAVA_HOME ~/Library/JAVA/JavaVirtualMachines/1.7.0.jdk/Contents/Home

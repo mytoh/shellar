@@ -1,5 +1,5 @@
-  function beastie
-    echo "
+function beastie
+  echo "
                 31m,        ,
                /(        )`
                \ \___   / |
@@ -20,4 +20,4 @@
          [36m,'\''  ,-----'\''   |
          `--{__________)[37m                                 "
 
-  end
+end

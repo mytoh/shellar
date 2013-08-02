@@ -1,3 +1,3 @@
-  function pclean
-    sudo make clean
-  end
+function pclean
+  sudo make clean
+end

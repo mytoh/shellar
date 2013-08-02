@@ -1,6 +1,5 @@
-
 function __mplayer
-mplayer $argv
+  mplayer $argv
 end
 
 # japani radio {{{
@@ -10,16 +9,6 @@ end
 
 ### for Podcasting, Streaming, FM, Radio   (UTF-8)                  2011/11/21
 # 24時間放送でないところは、放送時間を確認してから聞いて下さい。
-
-
-
-# FMりべーる             (北海道旭川市)
-function sb-837 -d "FMりべーる (北海道旭川市)"
-  __mplayer 'http://wms.shibapon.net/fm837'
-end
-function sb-asahikawa -d "FMりべーる (北海道旭川市)"
-  sb-837
-end
 
 # FM Dramacity           (北海道札幌市厚別区)
 function sb-dramacity -d "FM Dramacity (北海道札幌市厚別区)"

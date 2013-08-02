@@ -1,4 +1,3 @@
-
 # panna {{{
 # add panna to PATH
 set -x OLUTPANIMO "$HOME/.panna"
@@ -12,7 +11,7 @@ function __fish_complete_panna_kaava
   for cmd in $arguments
 
     if contains -- $cmd edit install homepage home up update
-      ls $OLUTPANIMO/kirjasto/kaava | sed s/\.scm//
+      ls $OLUTPANIMO/kirjasto/kaava  | sed s/\.scm//
       return 0
     end
 
@@ -27,4 +26,3 @@ complete -c panna -n '__fish_use_subcommand' -xa 'build install up edit info
 uninstall  unlink rm remove ls list homepage home up update'
 complete -c panna -f -a "(__fish_complete_panna_kaava)"
 # }}}
-

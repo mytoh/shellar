@@ -1,4 +1,3 @@
-
 # talikko {{{
 function __fish_complete_talikko_ports_tree
   set arguments (commandline -opc)
@@ -28,4 +27,3 @@ if type -f talikko >  /dev/null
 end
 
 #}}}
-

@@ -1,2 +1,1 @@
-
 alias msh 'rlwrap mosh'

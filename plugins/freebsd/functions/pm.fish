@@ -1,3 +1,3 @@
-  function pm
-    sudo portmaster -dBvy $argv
-  end
+function pm
+  sudo portmaster -dBvy $argv
+end

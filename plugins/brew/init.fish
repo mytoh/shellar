@@ -1,7 +1,7 @@
 switch (uname)
 case Darwin
-set -x HOMEBREW_VERBOSE 1
-set -x HOMEBREW_CC clang
+  set -x HOMEBREW_VERBOSE 1
+  set -x HOMEBREW_CC clang
 
   set -x PATH $HOME/local/homebrew/bin $HOME/local/homebrew/sbin $PATH
 
@@ -57,4 +57,3 @@ set -x HOMEBREW_CC clang
 
   end
 end
-

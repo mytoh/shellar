@@ -1,11 +1,6 @@
 # LOL!!1
 # Source: http://aur.archlinux.org/packages/lolbash/lolbash/lolbash.sh
 
-
-
-
-
-
 function tldr
   less $argv
 end

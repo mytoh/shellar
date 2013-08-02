@@ -11,11 +11,10 @@ set -gx shellar_custom_plugin_dir {$shellar_custom}/plugins
 # path
 set -gx PATH {$shellar_bin_dir} {$PATH}
 
-function shellar_register_paths
+function shellar.register_paths
   # [[http://github.com/mashiro/dot-files/blob/master/.zshenv]]
   set dir {$argv[1]}
   if test -d {$dir}
-
     if test -d {$dir}/bin
       if not contains {$dir}/bin {$PATH}
         set -gx PATH {$dir}/bin {$PATH}
@@ -41,11 +40,10 @@ function shellar_register_paths
         set -gx INFOPATH {$dir}/info {$INFOPATH}
       end
     end
-
   end
 end
 
-function shellar_push_to_path
+function shellar.push_to_path
   for p in $argv
     if test -d $p
       if not contains $p $PATH
@@ -55,10 +53,10 @@ function shellar_push_to_path
   end
 end
 
-function shellar_command_exists
-if type -f {$argv[1]} >  /dev/null
-return 0
-else
-return 127
-end
+function shellar.command_exists
+  if type -f {$argv[1]} >  /dev/null
+    true
+  else
+    false
+  end
 end

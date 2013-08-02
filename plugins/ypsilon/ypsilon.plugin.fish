@@ -1,2 +1,1 @@
-
 alias yps "rlwrap ypsilon"

@@ -39,3 +39,4 @@ for plugin in {$shellar_plugins}
     set -x fish_function_path {$f} {$fish_function_path}
   end
 end
+

@@ -1,3 +1,3 @@
 function pahvi
-piki pahvi $argv
+  piki pahvi $argv
 end

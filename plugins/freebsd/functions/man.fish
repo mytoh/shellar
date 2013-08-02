@@ -1,3 +1,3 @@
-  function man
-    command man $argv
-  end
+function man
+  command man $argv
+end
