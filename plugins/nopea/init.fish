@@ -1,5 +1,4 @@
-if test (type nopea)
-
+if shellar.command_exists nopea
   function s
     nopea save {$argv}
   end
@@ -7,5 +6,5 @@ if test (type nopea)
   function g
     cd (nopea go {$argv})
   end
-
 end
+

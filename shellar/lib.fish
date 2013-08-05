@@ -6,14 +6,14 @@ set -gx shellar_themes_dir {$shellar}/themes
 if not set -q shellar_custom
   set -gx shellar_custom {$HOME}/.shellar_custom
 end
+
 set -gx shellar_custom_plugin_dir {$shellar_custom}/plugins
 
 # path
 set -gx PATH {$shellar_bin_dir} {$PATH}
 
-function shellar.register_paths
+function shellar.register_paths --argument dir
   # [[http://github.com/mashiro/dot-files/blob/master/.zshenv]]
-  set dir {$argv[1]}
   if test -d {$dir}
     if test -d {$dir}/bin
       if not contains {$dir}/bin {$PATH}
@@ -53,8 +53,8 @@ function shellar.push_to_path
   end
 end
 
-function shellar.command_exists
-  if type -f {$argv[1]} >  /dev/null
+function shellar.command_exists --argument cmd
+  if type -f {$cmd} >  /dev/null
     true
   else
     false

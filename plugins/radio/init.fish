@@ -10,37 +10,9 @@ end
 ### for Podcasting, Streaming, FM, Radio   (UTF-8)                  2011/11/21
 # 24時間放送でないところは、放送時間を確認してから聞いて下さい。
 
-# FM Dramacity           (北海道札幌市厚別区)
-function sb-dramacity -d "FM Dramacity (北海道札幌市厚別区)"
-  __mplayer -novideo 'http://bipscweb.ddo.jp:8080/'
-end
-function sb-sapporod -d "FM Dramacity (北海道札幌市厚別区)"
-  sb-dramacity
-end
 
-# 三角山放送局           (北海道札幌市西区)
-function sb-sankakuyama -d "三角山放送局  (北海道札幌市西区) "
-  __mplayer --playlist='http://wm.sankakuyama.co.jp/asx/sankaku_24k.asx'
-end
-function sb-sapporos -d "三角山放送局  (北海道札幌市西区) "
-  sb-sankakuyama
-end
 
-# FM-JAGA                (北海道帯広市)
-function sb-jaga -d "FM-JAGA  (北海道帯広市) "
-  __mplayer mms://simul.freebit.net/fmjaga
-end
-function sb-obihiroj -d "FM-JAGA  (北海道帯広市) "
-  sb-jaga
-end
 
-# FM WING                (北海道帯広市)
-function sb-wing -d "FM WING (北海道帯広市)"
-  __mplayer mms://simul.freebit.net/fmwing
-end
-function sb-obihirow -d "FM WING (北海道帯広市)"
-  sb-wing
-end
 
 # FMくしろ               (北海道釧路市)
 function sb-kushiro -d "FMくしろ (北海道釧路市)"
