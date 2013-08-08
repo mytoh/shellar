@@ -16,29 +16,24 @@ function shellar.register_paths --argument dir
   # [[http://github.com/mashiro/dot-files/blob/master/.zshenv]]
   if test -d {$dir}
     if test -d {$dir}/bin
-      if not contains {$dir}/bin {$PATH}
+      and not contains {$dir}/bin {$PATH}
         set -gx PATH {$dir}/bin {$PATH}
-      end
     end
     if test -d {$dir}/sbin
-      if not contains {$dir}/sbin {$PATH}
+      and not contains {$dir}/sbin {$PATH}
         set -gx PATH {$dir}/sbin {$PATH}
-      end
     end
     if test -d {$dir}/man
-      if not contains {$dir}/man {$MANPATH}
+      and not contains {$dir}/man {$MANPATH}
         set -gx MANPATH {$dir}/man {$MANPATH}
-      end
     end
     if test -d {$dir}/share/man
-      if not contains {$dir}/share/man {$MANPATH}
+      and not contains {$dir}/share/man {$MANPATH}
         set -gx MANPATH {$dir}/share/man {$MANPATH}
-      end
     end
     if test -d {$dir}/info
-      if not contains {$dir}/info {$INFOPATH}
+      and not contains {$dir}/info {$INFOPATH}
         set -gx INFOPATH {$dir}/info {$INFOPATH}
-      end
     end
   end
 end
