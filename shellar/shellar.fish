@@ -11,12 +11,18 @@ end
 
 # load plugins
 for plugin in {$shellar_plugins}
-  set p {$shellar_plugins_dir}/{$plugin}/init.fish
-  set c {$shellar_custom_plugin_dir}/{$plugin}/init.fish
-  if test -f {$c}
-    . {$c}
-  else if test -f {$p}
-    . {$p}
+  set p {$shellar_plugins_dir}/{$plugin}
+  set c {$shellar_custom_plugin_dir}/{$plugin}
+  if test -f {$c}/init.fish
+    . {$c}/init.fish
+    for file in {$c}/local/*.fish
+      . {$file}
+    end
+  else if test -f {$p}/init.fish
+    . {$p}/init.fish
+    for file in {$p}/local/*.fish
+      . {$file}
+    end
   end
 end
 
@@ -37,6 +43,20 @@ for plugin in {$shellar_plugins}
   else if test -d {$f}
     and not contains {$f} {$fish_function_path}
     set -x fish_function_path {$f} {$fish_function_path}
+  end
+end
+
+# add bin dir to path
+for plugin in {$shellar_plugins}
+  set plugin_bin {$shellar_plugins_dir}/{$plugin}/bin
+  set custom_bin {$shellar_custom_plugin_dir}/{$plugin}/bin
+  if test -d {$plugin_bin}
+    and not contains {$plugin_bin} {$PATH}
+    set -gx PATH {$plugin_bin} {$PATH}
+  end
+  if test -d {$custom_bin}
+    and not contains {$custom_bin} {$PATH}
+    set -gx PATH {$custom_bin} {$PATH}
   end
 end
 
