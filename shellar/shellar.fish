@@ -46,6 +46,20 @@ for plugin in {$shellar_plugins}
   end
 end
 
+# add completions dir to complete path
+for plugin in {$shellar_plugins}
+  set f {$shellar_plugins_dir}/{$plugin}/completions
+  set c {$shellar_custom_plugin_dir}/{$plugin}/completions
+  if test -d {$c}
+    and not contains {$c} {$fish_complete_path}
+    set -x fish_complete_path {$c} {$fish_complete_path}
+  else if test -d {$f}
+    and not contains {$f} {$fish_complete_path}
+    set -x fish_complete_path {$f} {$fish_complete_path}
+  end
+end
+
+
 # add bin dir to path
 for plugin in {$shellar_plugins}
   set plugin_bin {$shellar_plugins_dir}/{$plugin}/bin
@@ -59,4 +73,3 @@ for plugin in {$shellar_plugins}
     set -gx PATH {$custom_bin} {$PATH}
   end
 end
-
