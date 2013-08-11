@@ -1,13 +1,21 @@
 #!/bin/sh
 
+## info
 info() {
-    printf "shellar: %s\n" "${shellar}"
-    printf "custom: %s\n" "${shellar_custom}"
-    printf "plugins: "
-    info_plugins
+
+    if test "${1}" = ""
+    then
+        info_plugins
+    else
+        info_plugin "${1}"
+    fi
 }
 
 info_plugins() {
+    printf "shellar: %s\n" "${shellar}"
+    printf "custom: %s\n" "${shellar_custom}"
+    printf "plugins: "
+
     IFS=":"
     for p in ${shellar_plugins}; do
         printf "%s " "${p}"
@@ -15,6 +23,47 @@ info_plugins() {
     printf "\n"
 }
 
+info_plugin() {
+    local pl="${1}"
+    local plugin_dir
+
+    if test -d ${shellar_custom_plugin_dir}/${pl}
+    then
+        plugin_dir=${shellar_custom_plugin_dir}/${pl}
+    else
+        plugin_dir=${shellar_plugins_dir}/${pl}
+    fi
+
+    ## functions
+    if test -d ${plugin_dir}/functions
+    then
+        printf "functions path: %s" ${plugin_dir}/functions
+        printf "\n"
+    fi
+
+    ## completions
+    if test -d ${plugin_dir}/completions
+    then
+        printf "completions path: %s" ${plugin_dir}/completions
+        printf "\n"
+    fi
+
+    ## bin
+    if test -d ${plugin_dir}/bin
+    then
+        printf "bin path: %s" ${plugin_dir}/bin
+        printf "\n"
+    fi
+
+    ## local
+    if test -d ${plugin_dir}/local
+    then
+        printf "local path: %s" ${plugin_dir}/local
+        printf "\n"
+    fi
+}
+
+## plugins
 plugins() {
     local pls=${shellar_plugins_dir}/*
 
@@ -30,16 +79,6 @@ plugins() {
     printf "\n"
 }
 
-help() {
-    local commands="info plugins"
-    printf "commands:\n"
-    for c in ${commands}; do
-        printf "%s " ${c}
-    done
-    printf "\n"
-}
-
-
 contains() {
     local elem="${1}"
     local list="${2}"
@@ -53,12 +92,28 @@ contains() {
     return ${flag}
 }
 
+
+## help
+help() {
+    local commands="info plugins"
+    printf "commands:\n"
+    for c in ${commands}; do
+        printf "%s " ${c}
+    done
+    printf "\n"
+}
+
+
+
 main() {
     case "${1}" in
-        info) info ;;
-        plugins) plugins ;;
-        *) help ;;
+        info)
+            info "${2}";;
+        plugins)
+            plugins ;;
+        *)
+            help ;;
     esac
 }
 
-main "${1}"
+main "${1}" "${2}"
