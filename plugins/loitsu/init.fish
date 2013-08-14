@@ -7,10 +7,10 @@ set loitsu_bin {$loitsu}/bin
 shellar.push_to_path {$loitsu_bin}
 
 # mosh
-if test -n {$MOSH_LOADPATH}
-  set -x MOSH_LOADPATH {$loitsu_lib} {$MOSH_LOADPATH}
+if test {$MOSH_LOADPATH}
+  set -gx MOSH_LOADPATH {$loitsu_lib} {$MOSH_LOADPATH}
 else
-  set -x MOSH_LOADPATH {$loitsu_lib}
+  set -gx MOSH_LOADPATH {$loitsu_lib}
 end
 
 # ypsilon
@@ -25,3 +25,4 @@ if test {$YPSILON_LOADPATH}
 else
   set -x YPSILON_LOADPATH {$loitsu_bin}
 end
+
