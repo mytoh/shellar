@@ -2,11 +2,11 @@ if not set -q shellar
   set -gx shellar {$HOME}/.shellar
 end
 
-. {$shellar}/shellar/lib.fish
+source {$shellar}/shellar/lib.fish
 
 # load library files
 for config in {$shellar_lib_dir}/*.fish
-  . {$config}
+  source {$config}
 end
 
 # load plugins
@@ -14,23 +14,23 @@ for plugin in {$shellar_plugins}
   set p {$shellar_plugins_dir}/{$plugin}
   set c {$shellar_custom_plugin_dir}/{$plugin}
   if test -f {$c}/init.fish
-    . {$c}/init.fish
+    source {$c}/init.fish
     for file in {$c}/local/*.fish
-      . {$file}
+      source {$file}
     end
   else if test -f {$p}/init.fish
-    . {$p}/init.fish
+    source {$p}/init.fish
     for file in {$p}/local/*.fish
-      . {$file}
+      source {$file}
     end
   end
 end
 
 # load theme
 if set -q shellar_theme
-  . {$shellar_themes_dir}/{$shellar_theme}/{$shellar_theme}.theme.fish
+  source {$shellar_themes_dir}/{$shellar_theme}/{$shellar_theme}.theme.fish
 else
-  . {$shellar_themes_dir}/default/default.theme.fish
+  source {$shellar_themes_dir}/default/default.theme.fish
 end
 
 # add functions dir to function path
@@ -58,7 +58,6 @@ for plugin in {$shellar_plugins}
     set -x fish_complete_path {$f} {$fish_complete_path}
   end
 end
-
 
 # add bin dir to path
 for plugin in {$shellar_plugins}
