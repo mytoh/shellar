@@ -5,19 +5,28 @@ info() {
 
     if test "${1}" = ""
     then
-        info_plugins
+        info_all
     else
         info_plugin "${1}"
     fi
 }
 
-info_plugins() {
-    printf "shellar: %s\n" "${shellar}"
-    printf "custom: %s\n" "${shellar_custom}"
-    printf "plugins: "
+colour() {
+    local m_colour="[38;5;${2}m"
+    local reset="[0m"
+
+    printf "${m_colour}${1}${reset}"
+}
+
+
+info_all() {
+    printf "%s: %s\n" $(colour "shellar" 163)  "${shellar}"
+    printf "%s: %s\n" $(colour "custom" 111)  "${shellar_custom}"
+    printf "%s: " $(colour "plugins" 102)
 
     IFS=":"
-    for p in ${shellar_plugins}; do
+    for p in ${shellar_plugins}
+    do
         printf "%s " "${p}"
     done
     printf "\n"
@@ -27,9 +36,9 @@ info_plugin() {
     local pl="${1}"
     local plugin_dir
 
-    if test -d ${shellar_custom_plugin_dir}/${pl}
+    if test -d ${shellar_custom_plugins_dir}/${pl}
     then
-        plugin_dir=${shellar_custom_plugin_dir}/${pl}
+        plugin_dir=${shellar_custom_plugins_dir}/${pl}
     else
         plugin_dir=${shellar_plugins_dir}/${pl}
     fi
@@ -68,9 +77,11 @@ plugins() {
     local pls=${shellar_plugins_dir}/*
 
     printf "available plugins: "
-    for pl in ${pls}; do
+    for pl in ${pls}
+    do
         local p="${pl##*/}"
-        if contains "${p}" "${shellar_plugins}"; then
+        if contains "${p}" "${shellar_plugins}"
+        then
             printf "[38;5;99m%s[0m " ${p}
         else
             printf "%s " ${p}
@@ -85,7 +96,8 @@ contains() {
     local flag=1
     IFS=":"
     for e in ${list}; do
-        if test "${e}" = "${elem}"; then
+        if test "${e}" = "${elem}"
+        then
             flag=0
         fi
     done
@@ -97,7 +109,8 @@ contains() {
 help() {
     local commands="info plugins"
     printf "commands:\n"
-    for c in ${commands}; do
+    for c in ${commands}
+    do
         printf "%s " ${c}
     done
     printf "\n"

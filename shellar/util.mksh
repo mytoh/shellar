@@ -1,0 +1,14 @@
+
+function shellar.source_all {
+    local d=$1
+    if test -d ${d}
+    then
+        for file in  ${d}/*.mksh
+        do
+            if test -f ${file}
+            then
+                source ${file}
+            fi
+        done
+    fi
+}

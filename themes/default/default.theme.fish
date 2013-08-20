@@ -41,11 +41,17 @@ end
 function current-directory
   switch "$PWD"
   case "/usr$HOME"
-    printf '%s%s%s' (set_color $fish_color_cwd) (echo '~') (set_color $fish_color_normal)
+  set_color blue
+  echo -n "~"
+  set_color normal
   case "/usr$HOME/*"
-    printf '%s%s%s' (set_color $fish_color_cwd) (echo $PWD|sed -e "s|^/usr$HOME|~|") (set_color $fish_color_normal)
+    set_color blue
+   echo $PWD|sed -e "s|^/usr$HOME|~|"
+   set_color normal
   case '*'
-    printf '%s%s%s' (set_color $fish_color_cwd) (echo $PWD) (set_color $fish_color_normal)
+    set_color blue
+echo $PWD
+set_color normal
   end
 
   #printf '%s%s%s' (set_color $fish_color_cwd) (prompt_pwd_mod) (set_color $fish_color_normal)

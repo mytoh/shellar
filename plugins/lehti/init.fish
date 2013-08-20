@@ -19,7 +19,7 @@ set -x PATH {$LEHTI_DIR}/bin {$PATH}
 
 # lehti {{{
 if test {$MOSH_LOADPATH}
-set -gx MOSH_LOADPATH (lehti setup load-path fish) {$MOSH_LOADPATH}
+  set -gx MOSH_LOADPATH (lehti setup load-path fish) {$MOSH_LOADPATH}
 else
   set -x MOSH_LOADPATH (lehti setup load-path fish)
 end

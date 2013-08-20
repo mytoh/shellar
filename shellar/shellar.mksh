@@ -1,25 +1,60 @@
 # -*- shell-script -*-
 
-source $shellar/shellar/lib.mksh
+source ${shellar}/shellar/env.mksh
+source ${shellar}/shellar/util.mksh
 
-
-for config in $mksh_lib_dir/*.mksh; do
-  if [[ -e $config ]]; then
-    source $config
-  fi
+## load library files
+for config in ${shellar_lib_dir}/*.mksh
+do
+    if test -f ${config}
+    then
+        echo ${config}
+        source ${config}
+    fi
+    unset config
 done
 
+## load plugins
 for plugin in $shellar_plugins; do
-  if [[ -e $shellar_plugin_dir/$plugin/init.mksh ]]; then
-    source $shellar_plugin_dir/$plugin/init.mksh
-  fi
+    local p=${shellar_plugins_dir}/${plugin}
+    local c=${shellar_custom_plugins_dir}/${plugin}
+    if test -f ${c}/init.mksh
+    then
+        source ${c}/init.mksh
+        shellar.source_all ${c}/local
+    elif test -f ${p}/init.mksh
+    then
+        source ${p}/init.mksh
+        shellar.source_all ${p}/local
+    fi
+    unset p
+    unset c
+    unset plugin
 done
 
-
-if [[ -n $shellar_theme ]]; then
-  source $shellar_theme_dir/$shellar_theme/$shellar_theme.theme.mksh
+## load theme
+if test -n ${shellar_theme}
+then
+    source ${shellar_theme_dir}/${shellar_theme}/${shellar_theme}.theme.mksh
 else
-  source $shellar_theme_dir/default/default.theme.mksh
+    source ${shellar_theme_dir}/default/default.theme.mksh
 fi
 
+## add bin directory to path
+for plugin in ${shellar_plugins}
+do
+    local plugin_bin=${shellar_plugins_dir}/${plugin}/bin
+    local custom_bin=${shellar_custom_plugins_dir}/${plugin}/bin
+    if test -d ${plugin_dir}
+    then
+        export PATH=${plugin_bin}:${PATH}
+    fi
+    if test -d ${custom_bin}
+    then
+        export PATH=${custom_bin}:${PATH}
+    fi
 
+    unset plugin
+    unset plugin_bin
+    unset custom_bin
+done
