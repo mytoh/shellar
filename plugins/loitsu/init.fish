@@ -7,7 +7,7 @@ set loitsu_bin {$loitsu}/bin
 shellar.push_to_path {$loitsu_bin}
 
 # mosh
-if test {$MOSH_LOADPATH}
+if test -n {$MOSH_LOADPATH}
   set -gx MOSH_LOADPATH {$loitsu_lib} {$MOSH_LOADPATH}
 else
   set -gx MOSH_LOADPATH {$loitsu_lib}

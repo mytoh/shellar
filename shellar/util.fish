@@ -70,3 +70,8 @@ function shellar.source_all --argument dir --description "source all files under
     end
 end
 
+function shellar.log --argument message
+ if set -q shellar_debug
+ echo {$message}
+end
+end

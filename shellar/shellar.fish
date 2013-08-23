@@ -38,6 +38,9 @@ for plugin in {$shellar_plugins}
     and not contains {$f} {$fish_function_path}
     shellar.add_variable fish_function_path {$f}
   end
+  shellar.log {$plugin}
+  shellar.log $f
+  shellar.log $c
 end
 
 ## add completions dir to complete path
