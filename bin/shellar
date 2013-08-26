@@ -21,15 +21,25 @@ colour() {
 
 info_all() {
     printf "%s: %s\n" $(colour "shellar" 163)  "${shellar}"
-    printf "%s: %s\n" $(colour "custom" 111)  "${shellar_custom}"
-    printf "%s: " $(colour "plugins" 102)
+    printf "%s: %s\n" $(colour "shellar_bin" 111)  "${shellar_bin_path}"
+    printf "%s: %s\n" $(colour "shellar_lib" 111)  "${shellar_lib_path}"
+    printf "%s: %s\n" $(colour "shellar_plugins" 111) "${shellar_plugins_path}"
+    printf "%s: %s\n" $(colour "shellar_themes" 111) "${shellar_themes_path}"
 
+    printf "%s: %s\n" $(colour "custom" 171)  "${shellar_custom}"
+    printf "%s: %s\n" $(colour "custom_plugins" 171) "${shellar_custom_plugins_path}"
+
+
+    printf "%s: " $(colour "plugins" 102)
     IFS=":"
     for p in ${shellar_plugins}
     do
         printf "%s " "${p}"
     done
     printf "\n"
+
+
+
 }
 
 info_plugin() {
