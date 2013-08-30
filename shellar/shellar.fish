@@ -29,8 +29,8 @@ end
 function shellar.init.add_functions --description "add functions dir to function path"
   shellar.log "adding functions path"
   for plugin in {$shellar_plugins}
-    set f {$shellar_plugins_path}/{$plugin}/functions
-    set c {$shellar_custom_plugins_path}/{$plugin}/functions
+    set f {$shellar_plugins_path}/{$plugin}/funktiot
+    set c {$shellar_custom_plugins_path}/{$plugin}/funktiot
     if test -d {$c}
       and not contains {$c} {$fish_function_path}
       shellar.add_variable fish_function_path {$c}

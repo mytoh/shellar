@@ -1,0 +1,15 @@
+#!/bin/sh
+
+
+## help
+help() {
+    local commands="info plugins"
+    printf "commands:\n"
+    for c in ${commands}
+    do
+        printf "%s " ${c}
+    done
+    printf "\n"
+}
+
+help

@@ -1,0 +1,86 @@
+#!/bin/sh
+
+## info
+info() {
+
+    if test "${1}" = ""
+    then
+        info_all
+    else
+        info_plugin "${1}"
+    fi
+}
+
+colour() {
+    local m_colour="[38;5;${2}m"
+    local reset="[0m"
+
+    printf "${m_colour}${1}${reset}"
+}
+
+
+info_all() {
+    printf "%s: %s\n" $(colour "shellar" 163)  "${shellar}"
+    printf "%s: %s\n" $(colour "shellar_bin" 111)  "${shellar_bin_path}"
+    printf "%s: %s\n" $(colour "shellar_lib" 111)  "${shellar_lib_path}"
+    printf "%s: %s\n" $(colour "shellar_plugins" 111) "${shellar_plugins_path}"
+    printf "%s: %s\n" $(colour "shellar_themes" 111) "${shellar_themes_path}"
+
+    printf "%s: %s\n" $(colour "custom" 171)  "${shellar_custom}"
+    printf "%s: %s\n" $(colour "custom_plugins" 171) "${shellar_custom_plugins_path}"
+
+
+    printf "%s: " $(colour "plugins" 102)
+    IFS=":"
+    for p in ${shellar_plugins}
+    do
+        printf "%s " "${p}"
+    done
+    printf "\n"
+
+
+
+}
+
+info_plugin() {
+    local pl="${1}"
+    local plugin_dir
+
+    if test -d ${shellar_custom_plugins_path}/${pl}
+    then
+        plugin_dir=${shellar_custom_plugins_path}/${pl}
+    else
+        plugin_dir=${shellar_plugins_path}/${pl}
+    fi
+
+    ## functions
+    if test -d ${plugin_dir}/funktiot
+    then
+        printf "functions path: %s" ${plugin_dir}/funktiot
+        printf "\n"
+    fi
+
+    ## completions
+    if test -d ${plugin_dir}/completions
+    then
+        printf "completions path: %s" ${plugin_dir}/completions
+        printf "\n"
+    fi
+
+    ## bin
+    if test -d ${plugin_dir}/bin
+    then
+        printf "bin path: %s" ${plugin_dir}/bin
+        printf "\n"
+    fi
+
+    ## local
+    if test -d ${plugin_dir}/local
+    then
+        printf "local path: %s" ${plugin_dir}/local
+        printf "\n"
+    fi
+}
+
+
+info "${1}"
