@@ -1,6 +1,0 @@
-# -*- shell-script -*-
-
-shellar_lib_dir=$shellar/lib
-shellar_theme_dir=$shellar/themes
-shellar_plugin_dir=$shellar/plugins
-

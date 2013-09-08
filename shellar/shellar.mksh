@@ -1,21 +1,21 @@
-# -*- shell-script -*-
 
-source ${shellar}/shellar/env.mksh
-source ${shellar}/shellar/util.mksh
+    source ${shellar}/shellar/env.mksh
+    source ${shellar}/shellar/util.mksh
 
-## load library files
-for config in ${shellar_lib_dir}/*.mksh
-do
+    ## load library files
+    for config in ${shellar_lib_dir}/*.mksh
+    do
     if test -f ${config}
     then
         echo ${config}
         source ${config}
     fi
     unset config
-done
+    done
 
-## load plugins
-for plugin in $shellar_plugins; do
+    function shellar.init.load_plugins {
+    ## load plugins
+    for plugin in $shellar_plugins; do
     local p=${shellar_plugins_dir}/${plugin}
     local c=${shellar_custom_plugins_dir}/${plugin}
     if test -f ${c}/init.mksh
@@ -30,19 +30,23 @@ for plugin in $shellar_plugins; do
     unset p
     unset c
     unset plugin
-done
+    done
+    }
 
-## load theme
-if test -n ${shellar_theme}
-then
-    source ${shellar_theme_dir}/${shellar_theme}/${shellar_theme}.theme.mksh
-else
-    source ${shellar_theme_dir}/default/default.theme.mksh
-fi
+    function shellar.init.load_theme {
+    ## load theme
+    if test -n ${shellar_theme}
+    then
+    source ${shellar_themes_dir}/${shellar_theme}/${shellar_theme}.theme.mksh
+    else
+    source ${shellar_themes_dir}/default/default.theme.mksh
+    fi
+    }
 
-## add bin directory to path
-for plugin in ${shellar_plugins}
-do
+    function shellar.init.add_bin {
+    ## add bin directory to path
+    for plugin in ${shellar_plugins}
+    do
     local plugin_bin=${shellar_plugins_dir}/${plugin}/bin
     local custom_bin=${shellar_custom_plugins_dir}/${plugin}/bin
     if test -d ${plugin_dir}
@@ -57,4 +61,12 @@ do
     unset plugin
     unset plugin_bin
     unset custom_bin
-done
+    done
+
+    }
+
+    function shellar.init {
+    shellar.init.load_plugins
+    shellar.init.load_theme
+    shellar.init.add_bin
+    }
