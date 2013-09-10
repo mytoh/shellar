@@ -1,0 +1,13 @@
+
+    loitsu=${HOME}/.loitsu
+    loitsu_lib=${loitsu}/lib
+    loitsu_bin=${loitsu}/bin
+
+    export PATH=${loitsu_bin}:${PATH}
+
+    if test -n ${MOSH_LOADPATH}
+    then
+    export MOSH_LOADPATH=${loitsu_lib}:${MOSH_LOADPATH}
+    else
+    export MOSH_LOADPATH=${loitsu_lib}
+    fi

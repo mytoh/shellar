@@ -1,17 +1,6 @@
 
-    source ${shellar}/shellar/env.mksh
-    source ${shellar}/shellar/util.mksh
-
-    ## load library files
-    for config in ${shellar_lib_dir}/*.mksh
-    do
-    if test -f ${config}
-    then
-        echo ${config}
-        source ${config}
-    fi
-    unset config
-    done
+    source ${shellar}/lib/env.mksh
+    source ${shellar}/lib/util.mksh
 
     function shellar.init.load_plugins {
     ## load plugins

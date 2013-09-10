@@ -1,0 +1,8 @@
+
+    function g {
+    cd $(nopea go ${*})
+    }
+
+    function s {
+    nopea save ${*}
+    }
