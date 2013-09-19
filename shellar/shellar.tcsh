@@ -2,9 +2,9 @@
 
 if ( ! $?shellar ) then
     setenv shellar $HOME/.shellar
-    endif
+endif
 
-    source $shellar/shellar/env.tcsh
+source $shellar/shellar/env.tcsh
 
     # library files
     foreach lib ($shellar_lib_dir/*)
