@@ -1,5 +1,5 @@
 
-set loitsu {$HOME}/.loitsu
+set loitsu {$HOME}/.config/loitsu
 set loitsu_lib {$loitsu}/lib
 set loitsu_bin {$loitsu}/bin
 
