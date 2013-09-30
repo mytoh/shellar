@@ -6,6 +6,7 @@
     alias yotsuba  'piki yotsuba'
     alias kolmio  'piki kolmio'
     alias yli  'piki ylilauta'
+    alias geeli  'piki geeli'
 
     alias mkd 'piki mkd'
     alias starwars 'piki starwars'

@@ -1,5 +1,5 @@
 
-    loitsu=${HOME}/.loitsu
+    loitsu=${HOME}/.config/loitsu
     loitsu_lib=${loitsu}/lib
     loitsu_bin=${loitsu}/bin
 

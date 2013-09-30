@@ -1,7 +1,7 @@
 
     if test -z ${LEHTI_DIR}
     then
-    export LEHTI_DIR="$HOME/.lehti"
+    export LEHTI_DIR="$HOME/.config/lehti"
     fi
 
     export PATH=${LEHTI_DIR}/bin:${PATH}
