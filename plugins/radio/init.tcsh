@@ -277,3 +277,9 @@ alias sb-tomigusuku sb-toyomi
 # 変更のあったときに Twitter (sfish2010) に連絡して頂けると助かります。
 # http://junk.s21.xrea.com/scripts/alias-sradio.txt
 
+
+## icecast
+alias ice-hbr "mpv --playlist='http://dir.xiph.org/listen/107684/listen.m3u'"
+
+## oifm
+alias oifm "mplayer --playlist='http://media.streaming.fi:8000/oifm.m3u'"
