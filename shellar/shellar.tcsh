@@ -14,22 +14,46 @@ foreach lib ($shellar_lib_dir/*)
         source $f
         endif
  end
+unset l nonomatch
+unset f nonomatch
 
 # plugins
 foreach plugin ( $shellar_plugins )
       set p=$shellar_plugins_dir/$plugin/init.tcsh
         set c=$shellar_custom_plugins_dir/$plugin/init.tcsh
+        set pl=${shellar_plugins_dir}/${plugin}/local
+        set cl=${shellar_custom_plugins_dir}/${plugin}/local
         if (-f $c) then
             source $c
+                if (-d ${cl}) then
+                    foreach file ("${cl}/*.tcsh")
+                        if (-f $file) then
+                      source $file
+                      endif
+                    end
+                   unset file
+                endif
         else if (-f $p) then
                 source $p
+                if (-d ${pl}) then
+                    foreach file ("${pl}/*.tcsh")
+                        if (-f $file) then
+                      source $file
+                      endif
+                    end
+                   unset file
                 endif
-  end
+        endif
+end
+unset p nonomatch
+unset c nonomatch
+unset cl nonomatch
+
 
 # theme
-  if ( $?shellar_theme) then
+if ( $?shellar_theme) then
         source $shellar_themes_dir/$shellar_theme/$shellar_theme.theme.tcsh
-        else
-    source $shellar_themes_dir/default/default.theme.tcsh
-  endif
+    else
+        source $shellar_themes_dir/default/default.theme.tcsh
+endif
 
