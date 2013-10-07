@@ -60,6 +60,20 @@ unset c nonomatch
 unset cl nonomatch
 unset pl nonomatch
 
+## bin path
+foreach plugin ( $shellar_plugins )
+      set p=$shellar_plugins_dir/$plugin/bin
+        set c=$shellar_custom_plugins_dir/$plugin/bin
+        if (-d $c) then
+            set path=($c $path)
+        else if (-d $p) then
+            set path=($p $path)
+        endif
+end
+unset p nonomatch
+unset c nonomatch
+
+
 
 # theme
 if ( $?shellar_theme) then
