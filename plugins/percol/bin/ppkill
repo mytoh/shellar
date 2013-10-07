@@ -1,0 +1,12 @@
+#!/bin/sh
+
+main() {
+    if test "${1}" == ""
+    then
+        ppgrep | xargs kill
+    else
+        ppgrep "${1}" | xargs kill
+    fi
+}
+
+main "${1}"

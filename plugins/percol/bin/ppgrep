@@ -1,0 +1,12 @@
+#!/bin/sh
+
+main() {
+    if test "${1}" == ""
+    then
+        ps aux | percol | awk '{ print $2 }'
+    else
+        ps aux | percol --query ${1} | awk '{ print $2 }'
+    fi
+}
+
+main "${1}"
