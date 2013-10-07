@@ -25,21 +25,31 @@ foreach plugin ( $shellar_plugins )
         set cl=${shellar_custom_plugins_dir}/${plugin}/local
         if (-f $c) then
             source $c
-                if (-d ${cl}) then
-                    foreach file ("${cl}/*.tcsh")
-                        if (-f $file) then
-                      source $file
-                      endif
-                    end
-                   unset file
-                endif
+            if (-d ${cl}) then
+                foreach file ("${cl}/*.tcsh")
+                    if ("$file" != "") then
+                        foreach f (${file})
+                          if (-f "${f}") then
+                               source $f
+                               unset f
+                               endif
+                               end
+                  endif
+                 end
+                unset file
+           endif
         else if (-f $p) then
                 source $p
                 if (-d ${pl}) then
                     foreach file ("${pl}/*.tcsh")
-                        if (-f $file) then
-                      source $file
-                      endif
+                        if ("$file" != "") then
+                            foreach f (${file})
+                                if (-f "${f}") then
+                                    source $f
+                                    unset f
+                                endif
+                            end
+                        endif
                     end
                    unset file
                 endif
@@ -48,6 +58,7 @@ end
 unset p nonomatch
 unset c nonomatch
 unset cl nonomatch
+unset pl nonomatch
 
 
 # theme
