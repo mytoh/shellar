@@ -33,8 +33,8 @@ foreach plugin ( $shellar_plugins )
                                source ${f}
                                unset f
                                endif
-                               end
-                  endif
+                          end
+                    endif
                  end
                 unset file
            endif
@@ -58,6 +58,7 @@ unset p nonomatch
 unset c nonomatch
 unset cl nonomatch
 unset pl nonomatch
+
 end
 
 ## bin path
