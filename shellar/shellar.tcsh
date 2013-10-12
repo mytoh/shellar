@@ -26,14 +26,11 @@ foreach plugin ( $shellar_plugins )
         if (-f ${c}) then
             source ${c}
             if (-d ${cl}) then
-                foreach file ("${cl}/*.tcsh")
-                    if ("$file" != "") then
-                        foreach f (${file})
-                          if (-f "${f}") then
-                               source ${f}
-                               unset f
-                               endif
-                          end
+                foreach file (${cl}/*)
+                    if ("$file" =~ "*.tcsh") then
+                        if (-f "${file}") then
+                             source ${file}
+                        endif
                     endif
                  end
                 unset file
@@ -41,17 +38,15 @@ foreach plugin ( $shellar_plugins )
         else if (-f ${p}) then
             source ${p}
             if (-d ${pl}) then
-                foreach file ("${pl}/*.tcsh")
-                    if ("${file}" != "") then
-                        foreach f (${file})
-                            if (-f "${f}") then
-                                source ${f}
-                                unset f
-                            endif
-                       end
+                foreach file (${pl}/*)
+                    if ("$file" =~ "*.tcsh") then
+                        if (-f "${file}") then
+                            echo ${file}
+                               source ${file}
+                        endif
                     endif
-                end
-               unset file
+                 end
+                unset file
            endif
     endif
 unset p nonomatch
