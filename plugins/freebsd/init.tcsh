@@ -15,8 +15,12 @@ if ( "$OSTYPE" == "FreeBSD" ) then
 
     if ( -X portmaster ) then
         alias pm 'sudo portmaster -dBvy '
-        endif
-        
+    endif
+
+    if ( -X pkg_replace ) then
+        alias prep sudo pkg_replace
+    endif
+
    if ({(procstat -a | grep squid >& /dev/null)}) then
        setenv http_proxy http://127.0.0.1:3128
    endif
