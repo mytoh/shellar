@@ -1,12 +1,12 @@
 
     source ${shellar}/lib/env.mksh
-    source ${shellar}/lib/util.mksh
+    source ${shellar_lib_path}/util.mksh
 
     function shellar.init.load_plugins {
     ## load plugins
     for plugin in $shellar_plugins; do
-    local p=${shellar_plugins_dir}/${plugin}
-    local c=${shellar_custom_plugins_dir}/${plugin}
+    local p="${shellar_plugins_path}/${plugin}"
+    local c="${shellar_custom_plugins_path}/${plugin}"
     if test -f ${c}/init.mksh
     then
         source ${c}/init.mksh
@@ -26,9 +26,9 @@
     ## load theme
     if test -n ${shellar_theme}
     then
-    source ${shellar_themes_dir}/${shellar_theme}/${shellar_theme}.theme.mksh
+    source ${shellar_themes_path}/${shellar_theme}/theme.mksh
     else
-    source ${shellar_themes_dir}/default/default.theme.mksh
+    source ${shellar_themes_path}/default/theme.mksh
     fi
     }
 
@@ -36,15 +36,15 @@
     ## add bin directory to path
     for plugin in ${shellar_plugins}
     do
-    local plugin_bin=${shellar_plugins_dir}/${plugin}/bin
-    local custom_bin=${shellar_custom_plugins_dir}/${plugin}/bin
-    if test -d ${plugin_dir}
+    local plugin_bin=${shellar_plugins_path}/${plugin}/bin
+    local custom_bin=${shellar_custom_plugins_path}/${plugin}/bin
+    if test -d ${plugin_bin}
     then
-        export PATH=${plugin_bin}:${PATH}
+        export PATH="${plugin_bin}:${PATH}"
     fi
     if test -d ${custom_bin}
     then
-        export PATH=${custom_bin}:${PATH}
+        export PATH="${custom_bin}:${PATH}"
     fi
 
     unset plugin

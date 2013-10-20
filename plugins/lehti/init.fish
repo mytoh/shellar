@@ -1,35 +1,21 @@
 # lehti {{{
 
-# mosh
-
-# ypsilon
-if test {$YPSILON_SITELIB}
-  set -x YPSILON_SITELIB (lehti setup load-path):{$YPSILON_SITELIB}
-else
-  set -x YPSILON_SITELIB (lehti setup load-path)
-end
-
-# }}}
-
-# lehti {{{
-
 if test -z {$LEHTI_DIR}
-  set -gx LEHTI_DIR {$HOME}/.lehti
+  set -gx LEHTI_DIR {$HOME}/.config/lehti
 end
 
-set -gx PATH {$LEHTI_DIR}/bin {$PATH}
+set lehti {$LEHTI_DIR}
+set lehti_lib {$lehti}/lib
+set lehti_bin {$lehti}/bin
+
+set -gx PATH {$lehti_bin} {$PATH}
 
 if test -n {$MOSH_LOADPATH}
+  set -gx MOSH_LOADPATH {$lehti_lib} {$MOSH_LOADPATH}
   set -gx MOSH_LOADPATH (lehti setup load-path fish) {$MOSH_LOADPATH}
 else
-  set -x MOSH_LOADPATH (lehti setup load-path fish)
-end
-
-# ypsilon
-if test {$YPSILON_SITELIB}
-  set -x YPSILON_SITELIB (lehti setup load-path):{$YPSILON_SITELIB}
-else
-  set -x YPSILON_SITELIB (lehti setup load-path)
+  set -gx MOSH_LOADPATH {$lehti_lib}
+  set -gx MOSH_LOADPATH (lehti setup load-path fish) {$MOSH_LOADPATH}
 end
 # }}}
 

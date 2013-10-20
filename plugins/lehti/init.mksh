@@ -1,14 +1,14 @@
 
     if test -z ${LEHTI_DIR}
-    then
-    export LEHTI_DIR="$HOME/.config/lehti"
+  then
+ export LEHTI_DIR="${HOME}/.config/lehti"
     fi
 
-    export PATH=${LEHTI_DIR}/bin:${PATH}
+    export PATH="${LEHTI_DIR}/bin:${PATH}"
 
     if test -n ${MOSH_LOADPATH}
     then
- export MOSH_LOADPATH=$(lehti setup load-path):${MOSH_LOADPATH}
+ export MOSH_LOADPATH="$(lehti setup load-path):${MOSH_LOADPATH}"
     else
-    export MOSH_LOADPATH=$(lehti setup load-path)
-    fi
+    export MOSH_LOADPATH="$(lehti setup load-path)"
+ fi

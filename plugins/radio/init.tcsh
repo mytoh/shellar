@@ -1,8 +1,4 @@
 
-## bbc {{{
-alias bbc1 "mplayer --playlist='http://www.bbc.co.uk/radio/listen/live/r1.asx'"
-alias bbc6  "mplayer --playlist='http://www.bbc.co.uk/radio/listen/live/r6.asx'"
-## }}}
 
 ### for Podcasting, Streaming, FM, Radio   (UTF-8)                  2013/ 3/25
 # 24時間放送でないところは、放送時間を確認してから聞いて下さい。

@@ -1,5 +1,5 @@
 
-if ( "$OSTYPE" == "FreeBSD" ) then
+if ( "${OSTYPE}" == "FreeBSD" ) then
     
     alias pup 'sudo portsnap fetch update '
     alias pcheck 'sudo portmaster -PBiydav && sudo portaudit -Fdav && sudo portmaster --clean-packages --clean-distfiles'
