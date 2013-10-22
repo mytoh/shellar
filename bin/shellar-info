@@ -7,7 +7,7 @@ info() {
     then
         info_all
     else
-        info_plugin "${1}"
+        info_bottle "${1}"
     fi
 }
 
@@ -23,61 +23,59 @@ info_all() {
     printf "%s: %s\n" $(colour "shellar" 163)  "${shellar}"
     printf "%s: %s\n" $(colour "shellar_bin" 111)  "${shellar_bin_path}"
     printf "%s: %s\n" $(colour "shellar_lib" 111)  "${shellar_lib_path}"
-    printf "%s: %s\n" $(colour "shellar_plugins" 111) "${shellar_plugins_path}"
+    printf "%s: %s\n" $(colour "shellar_bottles" 111) "${shellar_bottles_path}"
     printf "%s: %s\n" $(colour "shellar_themes" 111) "${shellar_themes_path}"
 
     printf "%s: %s\n" $(colour "custom" 171)  "${shellar_custom}"
-    printf "%s: %s\n" $(colour "custom_plugins" 171) "${shellar_custom_plugins_path}"
+    printf "%s: %s\n" $(colour "custom_bottles" 171) "${shellar_custom_bottles_path}"
 
 
-    printf "%s: " $(colour "plugins" 102)
+    printf "%s: " $(colour "bottles" 102)
     IFS=":"
-    for p in ${shellar_plugins}
+    for p in ${shellar_bottles}
     do
         printf "%s " "${p}"
     done
     printf "\n"
 
-
-
 }
 
-info_plugin() {
+info_bottle() {
     local pl="${1}"
-    local plugin_dir
+    local bottle_dir
 
-    if test -d ${shellar_custom_plugins_path}/${pl}
+    if test -d ${shellar_custom_bottles_path}/${pl}
     then
-        plugin_dir=${shellar_custom_plugins_path}/${pl}
+        bottle_dir=${shellar_custom_bottles_path}/${pl}
     else
-        plugin_dir=${shellar_plugins_path}/${pl}
+        bottle_dir=${shellar_bottles_path}/${pl}
     fi
 
     ## functions
-    if test -d ${plugin_dir}/funktiot
+    if test -d ${bottle_dir}/funktiot
     then
-        printf "functions path: %s" ${plugin_dir}/funktiot
+        printf "functions path: %s" ${bottle_dir}/funktiot
         printf "\n"
     fi
 
     ## completions
-    if test -d ${plugin_dir}/completions
+    if test -d ${bottle_dir}/completions
     then
-        printf "completions path: %s" ${plugin_dir}/completions
+        printf "completions path: %s" ${bottle_dir}/completions
         printf "\n"
     fi
 
     ## bin
-    if test -d ${plugin_dir}/bin
+    if test -d ${bottle_dir}/bin
     then
-        printf "bin path: %s" ${plugin_dir}/bin
+        printf "bin path: %s" ${bottle_dir}/bin
         printf "\n"
     fi
 
     ## local
-    if test -d ${plugin_dir}/local
+    if test -d ${bottle_dir}/local
     then
-        printf "local path: %s" ${plugin_dir}/local
+        printf "local path: %s" ${bottle_dir}/local
         printf "\n"
     fi
 }

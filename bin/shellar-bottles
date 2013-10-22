@@ -1,14 +1,14 @@
 #!/bin/sh
 
-## plugins
-plugins() {
-    local pls=${shellar_plugins_path}/*
+## bottles
+bottles() {
+    local pls=${shellar_bottles_path}/*
 
-    printf "available plugins: "
+    printf "available bottles: "
     for pl in ${pls}
     do
         local p="${pl##*/}"
-        if contains "${p}" "${shellar_plugins}"
+        if contains "${p}" "${shellar_bottles}"
         then
             printf "[38;5;99m%s[0m " ${p}
         else
@@ -33,4 +33,4 @@ contains() {
 }
 
 
-plugins
+bottles

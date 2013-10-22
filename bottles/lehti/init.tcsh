@@ -9,7 +9,7 @@ set lehti=${LEHTI_DIR}
 set lehti_lib=${lehti}/lib
 set lehti_bin=${lehti}/bin
 
-setenv PATH "${lehti_bin}:${PATH}"
+set -f path=(${lehti_bin} ${path})
 
 if  ( ${?MOSH_LOADPATH} ) then
     setenv MOSH_LOADPATH "${lehti_lib}:${MOSH_LOADPATH}"

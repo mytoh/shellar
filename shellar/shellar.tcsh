@@ -7,14 +7,14 @@ endif
 
 ## env
 setenv shellar_lib_path ${shellar}/lib
-setenv shellar_plugins_path ${shellar}/plugins
+setenv shellar_bottles_path ${shellar}/bottles
 setenv shellar_themes_path ${shellar}/themes
 
 if ( ! $?shellar_custom ) then
     setenv shellar_custom ${HOME}/.shellar_custom
 endif
 
-setenv shellar_custom_plugins_path ${shellar_custom}/plugins
+setenv shellar_custom_bottles_path ${shellar_custom}/bottles
 
 # library files
 foreach lib (${shellar_lib_path}/*)
@@ -26,12 +26,12 @@ foreach lib (${shellar_lib_path}/*)
  end
 unset file
 
-# plugins
-foreach plugin ( ${shellar_plugins} )
-      set p=${shellar_plugins_path}/${plugin}/init.tcsh
-        set c=${shellar_custom_plugins_path}/${plugin}/init.tcsh
-        set pl=${shellar_plugins_path}/${plugin}/local
-        set cl=${shellar_custom_plugins_path}/${plugin}/local
+# bottles
+foreach bottle ( ${shellar_bottles} )
+      set p=${shellar_bottles_path}/${bottle}/init.tcsh
+        set c=${shellar_custom_bottles_path}/${bottle}/init.tcsh
+        set pl=${shellar_bottles_path}/${bottle}/local
+        set cl=${shellar_custom_bottles_path}/${bottle}/local
         if (-f ${c}) then
             source ${c}
             if (-d ${cl}) then
@@ -65,9 +65,9 @@ unset pl nonomatch
 end
 
 ## bin path
-foreach plugin ( ${shellar_plugins} )
-      set p=${shellar_plugins_path}/${plugin}/bin
-      set c=${shellar_custom_plugins_path}/${plugin}/bin
+foreach bottle ( ${shellar_bottles} )
+      set p=${shellar_bottles_path}/${bottle}/bin
+      set c=${shellar_custom_bottles_path}/${bottle}/bin
       if (-d ${c}) then
           set path=(${c} ${path})
       else if (-d ${p}) then

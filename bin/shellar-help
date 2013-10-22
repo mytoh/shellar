@@ -3,7 +3,7 @@
 
 ## help
 help() {
-    local commands="info plugins"
+    local commands="info bottles"
     printf "commands:\n"
     for c in ${commands}
     do

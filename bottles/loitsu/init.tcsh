@@ -3,7 +3,7 @@ set loitsu=${HOME}/.config/loitsu
 set loitsu_lib=${loitsu}/lib
 set loitsu_bin=${loitsu}/bin
 
-setenv PATH ${loitsu_bin}:${PATH}
+set path=(${loitsu_bin} ${path})
 
 # mosh
 if ( ! ${?MOSH_LOADPATH}) then

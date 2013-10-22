@@ -1,0 +1,17 @@
+#!/bin/sh
+
+detect_shell() {
+
+echo $(basename ${SHELL})
+
+}
+
+main() {
+
+case $(detect_shell) in
+tcsh) echo "source ${shellar}/shellar/shellar.tcsh" ;;
+esac
+
+}
+
+main $@
