@@ -67,15 +67,24 @@ end
 
 ## bin path
 foreach bottle ( ${shellar_bottles} )
-      set p=${shellar_bottles_path}/${bottle}/bin
-      set c=${shellar_custom_bottles_path}/${bottle}/bin
-      if (-d ${c}) then
-          set path=(${c} ${path})
-      else if (-d ${p}) then
-          set path=(${p} ${path})
+      set pb=${shellar_bottles_path}/${bottle}/bin
+      set ps=${shellar_bottles_path}/${bottle}/script
+      set cb=${shellar_custom_bottles_path}/${bottle}/bin
+      set cs=${shellar_custom_bottles_path}/${bottle}/script
+      if (-d ${cb}) then
+          set path=(${cb} ${path})
+      else if (-d ${pb}) then
+          set path=(${pb} ${path})
       endif
-unset p nonomatch
-unset c nonomatch
+      if (-d ${cs}) then
+          set path=(${cs} ${path})
+       else if (-d ${ps}) then
+          set path=(${ps} ${path})
+      endif
+unset pb nonomatch
+unset ps nonomatch
+unset cb nonomatch
+unset cs nonomatch
 end
 
 
