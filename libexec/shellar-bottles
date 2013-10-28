@@ -10,7 +10,7 @@ bottles() {
         local p="${pl##*/}"
         if contains "${p}" "${shellar_bottles}"
         then
-            printf "[38;5;99m%s[0m " ${p}
+            printf "[38;5;79m%s[0m " ${p}
         else
             printf "%s " ${p}
         fi
