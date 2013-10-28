@@ -7,6 +7,7 @@ endif
 
 ## env
 setenv shellar_lib_path ${shellar}/lib
+setenv shellar_libexec_path ${shellar}/libexec
 setenv shellar_bottles_path ${shellar}/bottles
 setenv shellar_themes_path ${shellar}/themes
 
