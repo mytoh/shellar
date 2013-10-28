@@ -22,8 +22,8 @@ contains() {
     local elem="${1}"
     local list="${2}"
     local flag=1
-    IFS=":"
-    for e in ${list}; do
+    for e in ${list}
+    do
         if test "${e}" = "${elem}"
         then
             flag=0
