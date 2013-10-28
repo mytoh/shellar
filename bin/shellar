@@ -4,9 +4,9 @@ main() {
     local subcommand="${1}"
     shift 1
     local args="${@}"
-    if type "shellar-${subcommand}" > /dev/null
+    if env PATH=${shellar}/libexec:${PATH} type "shellar-${subcommand}" > /dev/null
     then
-        "shellar-${subcommand}" "${args}"
+        env PATH=${shellar}/libexec:${PATH}  "shellar-${subcommand}" "${args}"
     else
         echo "command not found"
     fi
