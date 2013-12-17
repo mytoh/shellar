@@ -1,17 +1,11 @@
-    if (-d "$HOME/.cask") then
-  set path=($HOME/.cask/bin $path)
+if (! -d "$HOME/.cask") then
+  curl -fsSkL 'https://raw.github.com/cask/cask/master/go' | python
+endif
 
-  alias em-cai 'cask install'
-  alias em-cau 'cask update'
-  alias em-caI 'cask init'
-  alias em-cae 'cask exec'
-    else
-    curl -fsSkL 'https://raw.github.com/rejeep/cask.el/master/go' | sh
+set path=($HOME/.cask/bin $path)
 
-  set path=($HOME/.cask/bin $path)
+alias em-cai 'cask install'
+alias em-cau 'cask update'
+alias em-caI 'cask init'
+alias em-cae 'cask exec'
 
-  alias em-cai 'cask install'
-  alias em-cau 'cask update'
-  alias em-caI 'cask init'
-  alias em-cae 'cask exec'
-    endif

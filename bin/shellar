@@ -10,7 +10,6 @@ main() {
     else
         echo "command not found"
     fi
-
 }
 
-main "$@"
+main "${@}"

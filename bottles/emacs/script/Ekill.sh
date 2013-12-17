@@ -1,0 +1,2 @@
+
+emacsclient -e '(kill-emacs)'

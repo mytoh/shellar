@@ -5,9 +5,9 @@ info() {
 
     if test "${1}" = ""
     then
-        info.all
+        info::all
     else
-        info.bottle "${1}"
+        info::bottle "${1}"
     fi
 }
 
@@ -19,7 +19,7 @@ colour() {
 }
 
 
-info.all() {
+info::all() {
     printf "%s: %s\n" $(colour "shellar" 163)  "${shellar}"
     printf "%s: %s\n" $(colour "shellar_bin" 111)  "${shellar_bin_path}"
     printf "%s: %s\n" $(colour "shellar_lib" 111)  "${shellar_lib_path}"
@@ -40,7 +40,7 @@ info.all() {
 
 }
 
-info.bottle() {
+info::bottle() {
     local pl="${1}"
     local bottle_dir
 

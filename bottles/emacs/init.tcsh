@@ -1,4 +1,4 @@
 
- alias e 'emacsclient -t'
- alias em-w 'emacs -f w3m'
-
+alias E 'E.sh'
+alias Et 'Et.sh'
+alias Ekill 'Ekill.sh'

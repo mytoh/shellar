@@ -1,11 +1,16 @@
 
 if ( "${OSTYPE}" == "FreeBSD" ) then
     
+    if ( -X ariasnap ) then
+        alias pup 'sudo ariasnap fetch update '
+   else
     alias pup 'sudo portsnap fetch update '
+    endif
+
     alias pcheck 'sudo portmaster -PBiydav && sudo portaudit -Fdav && sudo portmaster --clean-packages --clean-distfiles'
     #alias pup 'sudo portsnap fetch update && sudo pkg_replace -Bcav && sudo portaudit -av && rehash'
     alias pfetch 'sudo make fetch-recursive'
-    alias pinst "sudo make -s clean reinstall clean ; rehash"
+    alias pinst "sudo make -s clean reinstall clean distclean; rehash"
     alias pconf sudo make config-recursive
     alias pclean 'sudo make clean '
     alias ppconf 'make pretty-print-config'

@@ -1,21 +1,20 @@
     # pikkukivi {{{
 
-alias paths 'piki print-path'
-alias aa    'piki ascii-taide'
-alias extattr 'piki extattr'
+alias paths 'pikkukivi print-path'
+alias aa    'pikkukivi ascii-taide'
+alias extattr 'pikkukivi extattr'
 
-alias futaba 'piki futaba'
-alias yotsuba  'piki yotsuba'
-alias kolmio  'piki kolmio'
-alias yli  'piki ylilauta'
-alias geeli  'piki geeli'
+alias futaba 'pikkukivi futaba'
+alias yotsuba  'pikkukivi yotsuba'
+alias kolmio  'pikkukivi kolmio'
+alias yli  'pikkukivi ylilauta'
+alias geeli  'pikkukivi geeli'
 
-alias mkd 'piki mkd'
-alias starwars 'piki starwars'
-alias jblive 'piki jblive'
-alias sumo 'piki sumo'
-alias sumo2 'piki sumo2'
-alias sumo3 'piki sumo3'
-alias gsp 'piki gsp'
+alias mkd 'pikkukivi mkd'
+alias starwars 'pikkukivi starwars'
+alias jblive 'pikkukivi jblive'
+alias sumo 'pikkukivi sumo'
+alias sumo2 'pikkukivi sumo2'
+alias sumo3 'pikkukivi sumo3'
 
 # }}}
