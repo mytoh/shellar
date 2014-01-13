@@ -6,7 +6,8 @@ if ( "${OSTYPE}" == "FreeBSD" ) then
     #alias pup 'sudo portsnap fetch update && sudo pkg_replace -Bcav && sudo portaudit -av && rehash'
     alias pfetch 'sudo make fetch-recursive'
     alias pinst "sudo make -s clean reinstall clean distclean; rehash"
-    alias pconf sudo make config-recursive
+    alias pconf sudo make config
+    alias pconfr sudo make config-recursive
     alias pclean 'sudo make clean '
     alias ppconf 'make pretty-print-config'
     alias psconf 'make showconfig'
