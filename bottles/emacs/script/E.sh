@@ -5,9 +5,9 @@ main()
 
     if "${file}" = ""
     then
-        emacsclient -n -a ''
+        exec emacsclient --no-wait --alternate-editor="" --create-frame "$@"
     else
-        emacsclient -n "${file}"
+        emacsclient --no-wait --create-frame "${file}"
     fi
 }
 
