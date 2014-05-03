@@ -49,7 +49,6 @@ function shellar.command_exists --argument cmd --description "check command exis
 end
 
 function shellar.add_variable --argument var value
-echo {$var}
 if not contains {$value} {$$var}
   set -gx {$var} {$value} {$$var}
 end
