@@ -10,12 +10,12 @@ set lehti_bin {$lehti}/bin
 
 set -gx PATH {$lehti_bin} {$PATH}
 
-if test -n {$MOSH_LOADPATH}
-  set -gx MOSH_LOADPATH {$lehti_lib} {$MOSH_LOADPATH}
-  set -gx MOSH_LOADPATH (lehti setup load-path fish) {$MOSH_LOADPATH}
+if test -n {$GAUCHE_LOAD_PATH}
+  set -gx GAUCHE_LOAD_PATH {$lehti_lib} {$GAUCHE_LOAD_PATH}
+  set -gx GAUCHE_LOAD_PATH (lehti setup load-path fish) {$GAUCHE_LOAD_PATH}
 else
-  set -gx MOSH_LOADPATH {$lehti_lib}
-  set -gx MOSH_LOADPATH (lehti setup load-path fish) {$MOSH_LOADPATH}
+  set -gx GAUCHE_LOAD_PATH {$lehti_lib}
+  set -gx GAUCHE_LOAD_PATH (lehti setup load-path fish) {$GAUCHE_LOAD_PATH}
 end
 # }}}
 

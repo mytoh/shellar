@@ -2,11 +2,12 @@
 source {$shellar}/lib/env.fish
 source {$shellar_lib_path}/util.fish
 
-function shellar.init.load_plugins --description "load plugins"
-  shellar.log "loading plugins"
-  for plugin in {$shellar_plugins}
-    set p {$shellar_plugins_path}/{$plugin}
-    set c {$shellar_custom_plugins_path}/{$plugin}
+function shellar.init.load_bottles --description "load bottles"
+  shellar.log "loading bottles"
+  for bottle in {$shellar_bottles}
+  shellar.log {$bottle}
+    set p {$shellar_bottles_path}/{$bottle}
+    set c {$shellar_custom_bottles_path}/{$bottle}
     if test -f {$c}/init.fish
       shellar.xsource {$c}/init.fish
       shellar.source_all {$c}/local
@@ -28,9 +29,9 @@ end
 
 function shellar.init.add_functions --description "add functions dir to function path"
   shellar.log "adding functions path"
-  for plugin in {$shellar_plugins}
-    set f {$shellar_plugins_path}/{$plugin}/funktiot
-    set c {$shellar_custom_plugins_path}/{$plugin}/funktiot
+  for bottle in {$shellar_bottles}
+    set f {$shellar_bottles_path}/{$bottle}/functions
+    set c {$shellar_custom_bottles_path}/{$bottle}/functions
     if test -d {$c}
       and not contains {$c} {$fish_function_path}
       shellar.add_variable fish_function_path {$c}
@@ -43,9 +44,9 @@ end
 
 function shellar.init.add_completions --description "add completions directory to path"
   shellar.log "adding completions path"
-  for plugin in {$shellar_plugins}
-    set f {$shellar_plugins_path}/{$plugin}/completions
-    set c {$shellar_custom_plugins_path}/{$plugin}/completions
+  for bottle in {$shellar_bottles}
+    set f {$shellar_bottles_path}/{$bottle}/completions
+    set c {$shellar_custom_bottles_path}/{$bottle}/completions
     if test -d {$c}
       and not contains {$c} {$fish_complete_path}
       shellar.add_variable fish_complete_path {$c}
@@ -58,12 +59,12 @@ end
 
 function shellar.init.add_bin --description "add bin directory to path"
   shellar.log "adding bin path"
-  for plugin in {$shellar_plugins}
-    set plugin_bin {$shellar_plugins_path}/{$plugin}/bin
-    set custom_bin {$shellar_custom_plugins_path}/{$plugin}/bin
-    if test -d {$plugin_bin}
-      and not contains {$plugin_bin} {$PATH}
-      shellar.add_variable PATH {$plugin_bin}
+  for bottle in {$shellar_bottles}
+    set bottle_bin {$shellar_bottles_path}/{$bottle}/bin
+    set custom_bin {$shellar_custom_bottles_path}/{$bottle}/bin
+    if test -d {$bottle_bin}
+      and not contains {$bottle_bin} {$PATH}
+      shellar.add_variable PATH {$bottle_bin}
     end
     if test -d {$custom_bin}
       and not contains {$custom_bin} {$PATH}
@@ -73,7 +74,7 @@ function shellar.init.add_bin --description "add bin directory to path"
 end
 
 function shellar.init
-  shellar.init.load_plugins
+  shellar.init.load_bottles
   shellar.init.load_theme
   shellar.init.add_functions
   shellar.init.add_completions

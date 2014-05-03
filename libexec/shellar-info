@@ -59,9 +59,9 @@ info::bottle() {
     fi
 
     ## functions
-    if test -d ${bottle_dir}/funktiot
+    if test -d ${bottle_dir}/functions
     then
-        printf "functions path: %s" ${bottle_dir}/funktiot
+        printf "functions path: %s" ${bottle_dir}/functions
         printf "\n"
     fi
 
