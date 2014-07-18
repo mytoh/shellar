@@ -62,13 +62,24 @@ function shellar.init.add_bin --description "add bin directory to path"
   for bottle in {$shellar_bottles}
     set bottle_bin {$shellar_bottles_path}/{$bottle}/bin
     set custom_bin {$shellar_custom_bottles_path}/{$bottle}/bin
+    set bottle_script {$shellar_bottles_path}/{$bottle}/script
+    set custom_script {$shellar_custom_bottles_path}/{$bottle}/script
     if test -d {$bottle_bin}
       and not contains {$bottle_bin} {$PATH}
-      shellar.add_variable PATH {$bottle_bin}
+      # shellar.add_variable PATH {$bottle_bin}
+      shellar.push_to_path {$bottle_bin}
     end
     if test -d {$custom_bin}
       and not contains {$custom_bin} {$PATH}
       shellar.add_variable PATH {$custom_bin}
+    end
+    if test -d {$bottle_script}
+      and not contains {$bottle_script} {$PATH}
+      shellar.add_variable PATH {$bottle_script}
+    end
+    if test -d {$custom_script}
+      and not contains {$custom_script} {$PATH}
+      shellar.add_variable PATH {$custom_script}
     end
   end
 end

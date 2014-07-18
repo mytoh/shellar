@@ -1,5 +1,5 @@
 
 
 if (-X qjail) then
-    alias qj 'sudo qjail'
+    alias qj 'command sudo -E qjail'
 endif

@@ -12,16 +12,6 @@ function shellar.register_paths --argument dir
       and not contains {$dir}/sbin {$PATH}
       set -gx PATH {$dir}/sbin {$PATH}
     end
-    # man
-    if test -d {$dir}/man
-      and not contains {$dir}/man {$MANPATH}
-      set -gx MANPATH {$dir}/man {$MANPATH}
-    end
-    # share/man
-    if test -d {$dir}/share/man
-      and not contains {$dir}/share/man {$MANPATH}
-      set -gx MANPATH {$dir}/share/man {$MANPATH}
-    end
     # info
     if test -d {$dir}/info
       and not contains {$dir}/info {$INFOPATH}
@@ -34,7 +24,12 @@ function shellar.push_to_path --description "add path to PATH variable"
   for p in {$argv}
     if test -d {$p}
       if not contains {$p} {$PATH}
-        set -gx PATH {$p} {$PATH}
+        # set -gx PATH {$p} {$PATH}
+        if set -q fish_user_paths
+       set -U fish_user_paths $fish_user_paths {$p}
+       else
+       set -U fish_user_paths  {$p}
+       end
       end
     end
   end

@@ -4,6 +4,7 @@ alias paths 'pikkukivi print-path'
 alias aa    'pikkukivi ascii-taide'
 alias extattr 'pikkukivi extattr'
 alias vittu 'pikkukivi vittu'
+alias ä 'pikkukivi ääliö'
 
 alias futaba 'pikkukivi futaba'
 alias yotsuba  'pikkukivi yotsuba'

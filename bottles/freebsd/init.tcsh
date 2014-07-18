@@ -22,10 +22,5 @@ if ( "${OSTYPE}" == "FreeBSD" ) then
         alias prep sudo pkg_replace
     endif
 
-   if ({(procstat -a | grep squid >& /dev/null)}) then
-       setenv http_proxy http://127.0.0.1:3128
-   endif
-
-
 endif
 
