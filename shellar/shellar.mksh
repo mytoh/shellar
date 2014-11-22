@@ -1,61 +1,75 @@
+#!/usr/bin/env mksh
 
-    source ${shellar}/lib/env.mksh
-    source ${shellar_lib_path}/util.mksh
+source ${shellar}/lib/env.mksh
+source ${shellar_lib_path}/util.mksh
 
-    function shellar.init.load_plugins {
-    ## load plugins
-    for plugin in $shellar_plugins; do
-    local p="${shellar_plugins_path}/${plugin}"
-    local c="${shellar_custom_plugins_path}/${plugin}"
-    if test -f ${c}/init.mksh
-    then
-        source ${c}/init.mksh
-        shellar.source_all ${c}/local
-    elif test -f ${p}/init.mksh
-    then
-        source ${p}/init.mksh
-        shellar.source_all ${p}/local
-    fi
-    unset p
-    unset c
-    unset plugin
+function shellar.init.load_bottles {
+    ## load bottles
+    for bottle in $shellar_bottles
+    do
+        local p="${shellar_bottles_path}/${bottle}"
+        local c="${shellar_custom_bottles_path}/${bottle}"
+        if test -f ${c}/init.mksh
+        then
+            source ${c}/init.mksh
+            shellar.source_all ${c}/local
+        elif test -f ${p}/init.mksh
+        then
+            source ${p}/init.mksh
+            shellar.source_all ${p}/local
+        fi
+        unset p
+        unset c
+        unset bottle
     done
-    }
+}
 
-    function shellar.init.load_theme {
+function shellar.init.load_theme {
     ## load theme
     if test -n ${shellar_theme}
     then
-    source ${shellar_themes_path}/${shellar_theme}/theme.mksh
+        source ${shellar_themes_path}/${shellar_theme}/theme.mksh
     else
-    source ${shellar_themes_path}/default/theme.mksh
+        source ${shellar_themes_path}/default/theme.mksh
     fi
-    }
+}
 
-    function shellar.init.add_bin {
+function shellar.init.add_bin {
     ## add bin directory to path
-    for plugin in ${shellar_plugins}
+    for bottle in ${shellar_bottles}
     do
-    local plugin_bin=${shellar_plugins_path}/${plugin}/bin
-    local custom_bin=${shellar_custom_plugins_path}/${plugin}/bin
-    if test -d ${plugin_bin}
-    then
-        export PATH="${plugin_bin}:${PATH}"
-    fi
-    if test -d ${custom_bin}
-    then
-        export PATH="${custom_bin}:${PATH}"
-    fi
+        local bottle_bin=${shellar_bottles_path}/${bottle}/bin
+        local custom_bin=${shellar_custom_bottles_path}/${bottle}/bin
+        local bottle_script=${shellar_bottles_path}/${bottle}/script
+        local custom_script=${shellar_custom_bottles_path}/${bottle}/script
+        if test -d ${bottle_bin}
+        then
+            export PATH="${bottle_bin}:${PATH}"
+        fi
+        if test -d ${custom_bin}
+        then
+            export PATH="${custom_bin}:${PATH}"
+        fi
+        if test -d ${bottle_script}
+        then
+            export PATH="${bottle_script}:${PATH}"
+        fi
+        if test -d ${custom_script}
+        then
+            export PATH="${custom_script}:${PATH}"
+        fi
 
-    unset plugin
-    unset plugin_bin
-    unset custom_bin
+        unset bottle
+        unset bottle_bin
+        unset custom_bin
+        unset bottle_script
+        unset custom_script
     done
 
-    }
+}
 
-    function shellar.init {
-    shellar.init.load_plugins
+function shellar.init {
+    shellar.init.load_bottles
     shellar.init.load_theme
     shellar.init.add_bin
-    }
+}

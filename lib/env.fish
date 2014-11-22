@@ -1,6 +1,6 @@
 ## global variables
 if not set -q shellar
-  set -gx shellar {$HOME}/.shellar
+  set -gx shellar {$HOME}/.config/shellar
 end
 set -gx shellar_bin_path {$shellar}/bin
 set -gx shellar_lib_path {$shellar}/lib

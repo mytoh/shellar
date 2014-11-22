@@ -1,34 +1,33 @@
 
+    if ( ! ${?shellar} ) then
+    setenv shellar ${HOME}/.config/shellar
+    endif
 
-if ( ! ${?shellar} ) then
-    setenv shellar ${HOME}/.shellar
-endif
 
+    ## env
+    setenv shellar_lib_path ${shellar}/lib
+    setenv shellar_libexec_path ${shellar}/libexec
+    setenv shellar_bottles_path ${shellar}/bottles
+    setenv shellar_themes_path ${shellar}/themes
 
-## env
-setenv shellar_lib_path ${shellar}/lib
-setenv shellar_libexec_path ${shellar}/libexec
-setenv shellar_bottles_path ${shellar}/bottles
-setenv shellar_themes_path ${shellar}/themes
-
-if ( ! $?shellar_custom ) then
+    if ( ! $?shellar_custom ) then
     setenv shellar_custom ${HOME}/.shellar_custom
-endif
+    endif
 
-setenv shellar_custom_bottles_path ${shellar_custom}/bottles
+    setenv shellar_custom_bottles_path ${shellar_custom}/bottles
 
-# library files
-foreach lib (${shellar_lib_path}/*)
+    # library files
+    foreach lib (${shellar_lib_path}/*)
     if ("${lib}" =~ "*.tcsh") then
         if (-f "${lib}") then
              source ${lib}
         endif
     endif
  end
-unset file
+    unset file
 
-# bottles
-foreach bottle ( ${shellar_bottles} )
+    # bottles
+    foreach bottle ( ${shellar_bottles} )
       set p=${shellar_bottles_path}/${bottle}/init.tcsh
         set c=${shellar_custom_bottles_path}/${bottle}/init.tcsh
         set pl=${shellar_bottles_path}/${bottle}/local
@@ -59,14 +58,14 @@ foreach bottle ( ${shellar_bottles} )
                 unset file
            endif
     endif
-unset p nonomatch
-unset c nonomatch
-unset cl nonomatch
-unset pl nonomatch
-end
+    unset p nonomatch
+    unset c nonomatch
+    unset cl nonomatch
+    unset pl nonomatch
+    end
 
-## bin path
-foreach bottle ( ${shellar_bottles} )
+    ## bin path
+    foreach bottle ( ${shellar_bottles} )
       set pb=${shellar_bottles_path}/${bottle}/bin
       set ps=${shellar_bottles_path}/${bottle}/script
       set cb=${shellar_custom_bottles_path}/${bottle}/bin
@@ -81,17 +80,16 @@ foreach bottle ( ${shellar_bottles} )
        else if (-d ${ps}) then
           set path=(${ps} ${path})
       endif
-unset pb nonomatch
-unset ps nonomatch
-unset cb nonomatch
-unset cs nonomatch
-end
+    unset pb nonomatch
+    unset ps nonomatch
+    unset cb nonomatch
+    unset cs nonomatch
+    end
 
 
-# theme
-if ( ${?shellar_theme}) then
+    # theme
+    if ( ${?shellar_theme}) then
         source ${shellar_themes_path}/${shellar_theme}/theme.tcsh
     else
         source ${shellar_themes_path}/default/theme.tcsh
-endif
-
+    endif
