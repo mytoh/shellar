@@ -36,7 +36,7 @@ function shellar.push_to_path --description "add path to PATH variable"
 end
 
 function shellar.command_exists --argument cmd --description "check command existance"
-  if type -f {$cmd} >  /dev/null
+  if type {$cmd} > /dev/null ^&1
     true
   else
     false

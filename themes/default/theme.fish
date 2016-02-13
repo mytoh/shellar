@@ -18,7 +18,7 @@ function parse_git_branch
 end
 
 function git_prompt
-  if test -z (git branch --quiet 2>| awk '/fatal:/ {print "no git"}')
+  if test -z \(git branch --quiet 2>| awk '/fatal:/ {print "no git"}'\)
     printf '%s%s' (parse_git_branch) (set_color {$fish_color_normal})
   else
     echo ""

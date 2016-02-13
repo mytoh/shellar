@@ -1,4 +1,4 @@
-if type -f napa >  /dev/null
+if type -f napa > /dev/null ^&1
   function ,
     napa {$argv}
   end
